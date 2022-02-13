@@ -1,19 +1,24 @@
 
-
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 
 #include <wiringPi.h>
 #include <wiringSerial.h>
+#include <czmq.h>
 
-int main ()
+#include "gps.h"
+
+void *create_gps_listener ()
 {
   int serial_port; 
   char dat,buff[100],GGA_code[3];
   unsigned char IsitGGAstring=0;
   unsigned char GGA_index=0;
   unsigned char is_GGA_received_completely = 0;
+
+  /* Initialize socket */
+  zsock_t *push = zsock_new_push ("inproc://gps");
   
   if ((serial_port = serialOpen ("/dev/ttyS0", 9600)) < 0)		/* open serial port */
   {
@@ -54,9 +59,8 @@ int main ()
 				}
 		  }
 		if(is_GGA_received_completely==1){
-			printf("GGA: %s",buff);
+			zstr_send (push, buff);
 			is_GGA_received_completely = 0;
 		}
 	}
-	return 0;
 }
