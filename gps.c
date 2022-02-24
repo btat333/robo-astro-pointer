@@ -14,9 +14,9 @@
 #define DEVICE 0x1e   // HMC5883L magnetometer device address
 
 //some MPU6050 Registers and their Address
-#define REGISTER_A 0              //Address of Configuration register A
+#define REGISTER_A 0x00             //Address of Configuration register A
 #define REGISTER_B 0x01          //Address of configuration register B
-#define REGISTER_MODE x02           //Address of mode register
+#define REGISTER_MODE 0x02           //Address of mode register
 
 #define X_AXIS_H 0x03              //Address of X-axis MSB data register
 #define Z_AXIS_H 0x05              //Address of Z-axis MSB data register
@@ -83,18 +83,41 @@ void *create_gps_listener ()
 void magnetometer_init(){
 
 	//write to Configuration Register A
-	wiringPiI2cWriteReg8(DEVICE, REGISTER_A, 0x70);
+	wiringPiI2CWriteReg8(DEVICE, REGISTER_A, 0x70);
 
 	//Write to Configuration Register B for gain
-	wiringPiI2cWriteReg8(DEVICE, REGISTER_B, 0xa0);
+	wiringPiI2CWriteReg8(DEVICE, REGISTER_B, 0xa0);
 
 	//Write to mode Register for selecting mode
-	wiringPiI2cWriteReg8(DEVICE, REGISTER_MODE, 0);
+	wiringPiI2CWriteReg8(DEVICE, REGISTER_MODE, 0);
 }
 
-void *create_magnetomer_listener ()
+double read_raw_data(int addr){
+    
+	//Read raw 16-bit value
+	int high = wiringPiI2CReadReg8(DEVICE, addr);
+	int low = wiringPiI2CReadReg8(DEVICE, addr+1);
+
+	//concatenate higher and lower value
+	double value = ((high << 8) | low);
+
+	//to get signed value from module
+	if(value > 32768){
+		value = value - 65536;
+	}
+
+	return value;
+}
+
+void *create_magnetometer_listener ()
 {
-	double x;
+	double x = 0;
+	double z;
+	double y;
+	double heading = 0;
+	double declination;
+	double heading_angle;
+	char s[50];
 
 	/* Initialize socket */
 	zsock_t *push = zsock_new_push ("inproc://magnet");
@@ -113,47 +136,32 @@ void *create_magnetomer_listener ()
 	while(1){
     
         //Read Accelerometer raw value
-        /*x = read_raw_data(X_AXIS_H);*/
-        double z = read_raw_data(Z_AXIS_H);
-        double y = read_raw_data(Y_AXIS_H);
+        x = read_raw_data(X_AXIS_H);
+        z = read_raw_data(Z_AXIS_H);
+        y = read_raw_data(Y_AXIS_H);
+		printf("%f\n", x);
+		printf("%f\n", y);
+		printf("%f\n", z);
 
-        heading = math.atan2(y, x) + declination
+        heading = atan2(y, x) + declination;
         
         //Due to declination check for >360 degree
-        if(heading > 2*pi){
-			heading = heading - 2*pi;
+        if(heading > 2*M_PI){
+			heading = heading - 2*M_PI;
 		}
 
         //check for sign
         if(heading < 0){
-			heading = heading + 2*pi;
+			heading = heading + 2*M_PI;
 		}
 
         //convert into angle
-        heading_angle = int(heading * 180/pi);
+        heading_angle = heading * 180/M_PI;
 
-        //sleep(1)
-
-		//zstr_send (push, buff);
+        sleep(1);
+		printf("hello\n");
+		printf("%f\n", heading_angle);
+		sprintf(s, "%f", heading_angle);
+		zstr_send (push, s);
 	}
-}
-
-	
-	
-
-int read_raw_data(int addr){
-    
-	//Read raw 16-bit value
-	int high = wiringPiI2cReadReg8(DEVICE, addr);
-	int low = wiringPiI2cReadReg8(DEVICE, addr+1);
-
-	//concatenate higher and lower value
-	value = ((high << 8) | low);
-
-	//to get signed value from module
-	if(value > 32768){
-		value = value - 65536;
-	}
-
-	return value;
 }

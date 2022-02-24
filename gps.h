@@ -3,5 +3,6 @@
 
 /* Creates gps listener which publishes gps telemetry events upon reciept of data */
 void *create_gps_listener ();
+void *create_magnetometer_listener ();
 
 #endif
