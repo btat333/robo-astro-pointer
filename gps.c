@@ -14,7 +14,7 @@
 #define DEVICE 0x1e   // HMC5883L magnetometer device address
 
 //some MPU6050 Registers and their Address
-#define REGISTER_A 0x00             //Address of Configuration register A
+#define REGISTER_A 0             //Address of Configuration register A
 #define REGISTER_B 0x01          //Address of configuration register B
 #define REGISTER_MODE 0x02           //Address of mode register
 
@@ -80,23 +80,40 @@ void *create_gps_listener ()
 	}
 }
 
-void magnetometer_init(){
+int magnetometer_init(int fd){
+
+	int err = 0;
 
 	//write to Configuration Register A
-	wiringPiI2CWriteReg8(DEVICE, REGISTER_A, 0x70);
+	err = wiringPiI2CWriteReg8(fd, REGISTER_A, 0x70);
+
+	if (err == -1){
+		printf(strerror(errno));
+		return err;
+	}
 
 	//Write to Configuration Register B for gain
-	wiringPiI2CWriteReg8(DEVICE, REGISTER_B, 0xa0);
+	err = wiringPiI2CWriteReg8(fd, REGISTER_B, 0xa0);
+
+	if (err == -1){
+		return err;
+	}
 
 	//Write to mode Register for selecting mode
-	wiringPiI2CWriteReg8(DEVICE, REGISTER_MODE, 0);
+	err = wiringPiI2CWriteReg8(fd, REGISTER_MODE, 0);
+
+	if (err == -1){
+		return err;
+	}
+
+	return 0;
 }
 
-double read_raw_data(int addr){
+double read_raw_data(int fd, int addr){
     
 	//Read raw 16-bit value
-	int high = wiringPiI2CReadReg8(DEVICE, addr);
-	int low = wiringPiI2CReadReg8(DEVICE, addr+1);
+	int high = wiringPiI2CReadReg8(fd, addr);
+	int low = wiringPiI2CReadReg8(fd, addr+1);
 
 	//concatenate higher and lower value
 	double value = ((high << 8) | low);
@@ -123,7 +140,12 @@ void *create_magnetometer_listener ()
 	zsock_t *push = zsock_new_push ("inproc://magnet");
 
 	// Initialize wiring pi l2c
-	int err_int = wiringPiI2CSetup(DEVICE);
+	int fd = wiringPiI2CSetup(DEVICE);
+
+	if (fd < 0){
+		printf("Failed to setup I2C with wiringPi.\n");
+		printf(strerror(errno));
+	}
 
     //Find Heading by using HMC5883L interface with Raspberry Pi using Python
 	//http://www.electronicwings.com
@@ -131,17 +153,14 @@ void *create_magnetometer_listener ()
 	//from time import sleep  #import sleep
 	// Is this just a python library manifestation - bus = smbus.SMBus(1) 	// or bus = smbus.SMBus(0) for older version boards
 
-	magnetometer_init();     // initialize HMC5883L magnetometer 
+	magnetometer_init(fd);     // initialize HMC5883L magnetometer 
 
 	while(1){
     
         //Read Accelerometer raw value
-        x = read_raw_data(X_AXIS_H);
-        z = read_raw_data(Z_AXIS_H);
-        y = read_raw_data(Y_AXIS_H);
-		printf("%f\n", x);
-		printf("%f\n", y);
-		printf("%f\n", z);
+        x = read_raw_data(fd, X_AXIS_H);
+        z = read_raw_data(fd, Z_AXIS_H);
+        y = read_raw_data(fd, Y_AXIS_H);
 
         heading = atan2(y, x) + declination;
         

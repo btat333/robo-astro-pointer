@@ -1,0 +1,2 @@
+
+# Config register A: default 0, 8 samples is 11, 100 is 15 hz for all axes, 00 for normal unbiased measurement mode: 01110000 -> Hexidecimal 70, 0x70
