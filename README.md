@@ -11,4 +11,21 @@
 # gcc -o robo gps.c pointer.c main.c -l wiringPi -l czmq -l pthread
 
 
+# Requirements
+# Magnification of 25mm plosl with XT6 = 48x
+# AFoV of XT6 = 52
+# True Field of View ~ 1 deg
+# The robo pointer shall provide an estimated star position no worse than 1 deg, 3 sigma 
+
+
+# Verification
+# Accelerometer error - atan(1/1000) ~ 0.1 deg
+# Magnetometer error - 1 to 2 deg
+# -- Current induced magnetic error - B = mu_0*i/(2*pi*r), i is current of r-pi, r is distance to magnetometer
+# GPS -> Topocentric Reference frame error
+# Earth Orientation Parameter Error
+# Stepper Motor Max Error -
+
+
+
 

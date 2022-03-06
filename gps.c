@@ -38,13 +38,13 @@ void *create_gps_listener ()
   if ((serial_port = serialOpen ("/dev/ttyS0", 9600)) < 0)		/* open serial port */
   {
     fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
-    //return 1 ;
+    exit(1);
   }
 
   if (wiringPiSetup () == -1)							/* initializes wiringPi setup */
   {
-    fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
-    //return 1 ;
+    fprintf (stderr, "Unable to start wiringPi: %s\n", strerror (errno)) ;
+    exit(1);
   }
 
   while(1){

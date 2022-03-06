@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "__locale": "c",
+        "ios": "c"
     }
 }
