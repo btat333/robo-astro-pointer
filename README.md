@@ -5,6 +5,8 @@
 # Address the warning messages about the errors returning 1 to a void method.  How to make the threads handle errors and shut down gracefully?
 # Create a struct to hold the object instead of publishing a string
 # Define behavior of application with respect to updates of each type of data.  How frequent is compass data?
+# Add 'self test' for calibration - temperature specific compensation
+# 
 
 # To Run:
 
