@@ -2,6 +2,14 @@
     "files.associations": {
         "*.tcc": "c",
         "__locale": "c",
-        "ios": "c"
+        "ios": "c",
+        "array": "c",
+        "compare": "c",
+        "functional": "c",
+        "ostream": "c",
+        "ranges": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }

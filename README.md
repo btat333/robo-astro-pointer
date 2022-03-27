@@ -11,7 +11,7 @@
 # To Run:
 
 # gcc -o robo gps.c pointer.c main.c -l wiringPi -l czmq -l pthread
-
+# gcc -o robo ./star_tracker/star_tracker.c ./star_tracker/camera.c gps.c pointer.c main.c -l wiringPi -lczmq -l pthread -l vips `pkg-config --cflags --libs glib-2.0` -lm
 
 # Requirements
 # Magnification of 25mm plosl with XT6 = 48x

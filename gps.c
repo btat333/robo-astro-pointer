@@ -1,13 +1,16 @@
 
-#include <stdio.h>
 #include <string.h>
 #include <errno.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include <wiringPi.h>
 #include <wiringSerial.h>
 #include <wiringPiI2C.h>
-#include <czmq.h>
+#include <zmq.h>
 
 #include "gps.h"
 
@@ -24,16 +27,24 @@
 #define DEC_OFFSET -0.00669          //define declination angle of location where measurement going to be done
 #define PI 3.14159265359    //define pi value
 
-void *create_gps_listener ()
+// File scope variables
+bool terminate_gps = false;
+bool terminate_magnetometer = false;
+void *push_gps;
+void *push_magnet;
+
+void *create_gps_listener (void* zmq_ctx)
 {
   int serial_port; 
   char dat,buff[100],GGA_code[3];	
   unsigned char IsitGGAstring=0;
   unsigned char GGA_index=0;
   unsigned char is_GGA_received_completely = 0;
+  terminate_gps = false;
 
   /* Initialize socket */
-  zsock_t *push = zsock_new_push ("inproc://gps");
+  push_gps = zmq_socket (zmq_ctx, ZMQ_PUB); 
+  int rc = zmq_bind (push_gps, "inproc://gps");
   
   if ((serial_port = serialOpen ("/dev/ttyS0", 9600)) < 0)		/* open serial port */
   {
@@ -47,7 +58,7 @@ void *create_gps_listener ()
     exit(1);
   }
 
-  while(1){
+  while(!terminate_gps){
 	  
 		if(serialDataAvail (serial_port) )		/* check for any data available on serial port */
 		  { 
@@ -74,7 +85,13 @@ void *create_gps_listener ()
 			}
 		  }
 		if(is_GGA_received_completely==1){
-			zstr_send (push, buff);
+  			fprintf(stdout, "Did we get here?");
+			/* Create a new message, allocating 6 bytes for message content */
+			void *data = malloc(6);
+			memcpy (data, buff, 6);
+			zmq_msg_t msg;
+			rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+			rc = zmq_msg_send (&msg, push_gps, 0);
 			is_GGA_received_completely = 0;
 		}
 	}
@@ -126,7 +143,7 @@ double read_raw_data(int fd, int addr){
 	return value;
 }
 
-void *create_magnetometer_listener ()
+void *create_magnetometer_listener(void* zmq_ctx)
 {
 	double x = 0;
 	double z;
@@ -135,9 +152,12 @@ void *create_magnetometer_listener ()
 	double declination;
 	double heading_angle;
 	char s[50];
+	terminate_magnetometer = false;
 
 	/* Initialize socket */
-	zsock_t *push = zsock_new_push ("inproc://magnet");
+  	push_magnet = zmq_socket (zmq_ctx, ZMQ_PUB); 
+	/* Bind it to a in-process transport with the address 'magnet' */
+	int rc = zmq_bind (push_magnet, "inproc://magnet");
 
 	// Initialize wiring pi l2c
 	int fd = wiringPiI2CSetup(DEVICE);
@@ -155,7 +175,7 @@ void *create_magnetometer_listener ()
 
 	magnetometer_init(fd);     // initialize HMC5883L magnetometer 
 
-	while(1){
+	while(!terminate_magnetometer){
     
         //Read Accelerometer raw value
         x = read_raw_data(fd, X_AXIS_H);
@@ -178,9 +198,20 @@ void *create_magnetometer_listener ()
         heading_angle = heading * 180/M_PI;
 
         sleep(1);
-		printf("hello\n");
-		printf("%f\n", heading_angle);
-		sprintf(s, "%f", heading_angle);
-		zstr_send (push, s);
+		void *data = malloc(6);
+		memcpy (data, s, 6);
+		zmq_msg_t msg;
+		rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+		rc = zmq_msg_send (&msg, push_magnet, 0);
 	}
+}
+
+void *end_gps_loop() {
+	terminate_gps = true;
+	zmq_close (&push_gps);
+}
+
+void *end_magnetometer_loop() {
+	terminate_magnetometer = true;
+	zmq_close (&push_magnet);
 }

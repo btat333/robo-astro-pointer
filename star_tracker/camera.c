@@ -16,22 +16,24 @@ const char* take_image() {
 const char* transform_to_fits(const char* jpeg) {
 
     VipsImage *in;
+    VipsImage *scrgb_image;
     VipsImage *bw_image;
     const char* fits_file = OUTFILE;
     int err_num;
 
     // open the image
-    if( !(err_num = vips_jpegload(jpeg, &in)) ) {
+    if(err_num = vips_jpegload(jpeg, &in)) {
         vips_error_exit(NULL);
     }
 
-    // Convert to B/W
-    if( !(err_num = vips_scRGB2BW(in, &bw_image)) ) {
+    // Convert to scrgb
+    fprintf(stdout,"Converting to greyscale.");
+    if(err_num = vips_colourspace(in, &bw_image, VIPS_INTERPRETATION_GREY16, NULL)) {
         vips_error_exit(NULL);
     }
 
     // Save FITS file
-    if( !(err_num = vips_fitssave(bw_image, fits_file)) ) {
+    if(err_num = vips_fitssave(in, fits_file)) {
         vips_error_exit(NULL);
     }
 

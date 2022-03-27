@@ -7,16 +7,24 @@
 
 #include "pointer.h"
 
-void * listen_gps_updates ()
+void * listen_gps_updates (void* zmq_ctx)
 {
 
     /* Initialize socket */
-    zsock_t *pull = zsock_new_pull ("inproc://gps");
+    void* pull = zmq_socket(zmq_ctx, ZMQ_SUB);
+    int rc = zmq_connect (pull, "inproc://gps");
 
     while(1){
 	  
-        char *string = zstr_recv(pull);
-        printf("GGA2: %s",string);
+        /* Create an empty 0MQ message */
+        zmq_msg_t msg;
+        int rc = zmq_msg_init (&msg);
+        /* Block until a message is available to be received from socket */
+        rc = zmq_msg_recv (&msg, pull, 0);
+
+        /* Release message */
+        zmq_msg_close (&msg);
+        printf("GGA2: %s","Hi");
     }
 
 }

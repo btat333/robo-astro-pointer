@@ -5,4 +5,8 @@
 void *create_gps_listener ();
 void *create_magnetometer_listener ();
 
+/* Release any dangling objects upon closure of app */
+void *end_gps_loop ();
+void *end_magnetometer_loop ();
+
 #endif
