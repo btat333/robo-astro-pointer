@@ -33,7 +33,7 @@ const char* transform_to_fits(const char* jpeg) {
     }
 
     // Save FITS file
-    if(err_num = vips_fitssave(in, fits_file)) {
+    if(err_num = vips_fitssave(in, fits_file, NULL)) {
         vips_error_exit(NULL);
     }
 
