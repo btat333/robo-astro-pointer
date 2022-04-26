@@ -27,7 +27,7 @@ const char* transform_to_fits(const char* jpeg) {
     }
 
     // Convert to scrgb
-    fprintf(stdout,"Converting to greyscale.");
+    fprintf(stdout,"Converting to greyscale.\n");
     if(err_num = vips_colourspace(in, &bw_image, VIPS_INTERPRETATION_GREY16, NULL)) {
         vips_error_exit(NULL);
     }

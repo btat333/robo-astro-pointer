@@ -1,4 +1,5 @@
 
+#include <assert.h>
 #include <string.h>
 #include <errno.h>
 #include <math.h>
@@ -11,6 +12,7 @@
 #include <wiringSerial.h>
 #include <wiringPiI2C.h>
 #include <zmq.h>
+#include "zhelpers.h"
 
 #include "gps.h"
 
@@ -43,8 +45,15 @@ void *create_gps_listener (void* zmq_ctx)
   terminate_gps = false;
 
   /* Initialize socket */
-  push_gps = zmq_socket (zmq_ctx, ZMQ_PUB); 
-  int rc = zmq_bind (push_gps, "inproc://gps");
+  //printf("Initilizing gps data publish socket.\n");
+  void *ctx = zmq_ctx_new();
+  push_gps = zmq_socket (ctx, ZMQ_PUB); 
+  int rc = zmq_bind (push_gps, "tcp://*:5555");
+  if (rc != 0) {
+	fprintf (stderr, "Unable to bind gps publisher: %s\n", strerror (errno)) ;
+	exit(1);
+  }
+  assert(rc == 0);
   
   if ((serial_port = serialOpen ("/dev/ttyS0", 9600)) < 0)		/* open serial port */
   {
@@ -58,11 +67,13 @@ void *create_gps_listener (void* zmq_ctx)
     exit(1);
   }
 
+  //printf("Waiting for gps data from reciever.\n");
   while(!terminate_gps){
 	  
 		if(serialDataAvail (serial_port) )		/* check for any data available on serial port */
 		  { 
 			dat = serialGetchar(serial_port);		/* receive character serially */		
+
 			if(dat == '$'){
 				IsitGGAstring = 0;
 				GGA_index = 0;
@@ -70,6 +81,7 @@ void *create_gps_listener (void* zmq_ctx)
 			else if(IsitGGAstring ==1){
 				buff[GGA_index++] = dat;
 				if(dat=='\r')
+					//fprintf(stdout,"loop");
 					is_GGA_received_completely = 1;
 				}
 			else if(GGA_code[0]=='G' && GGA_code[1]=='G' && GGA_code[2]=='A'){
@@ -85,13 +97,24 @@ void *create_gps_listener (void* zmq_ctx)
 			}
 		  }
 		if(is_GGA_received_completely==1){
-  			fprintf(stdout, "Did we get here?");
 			/* Create a new message, allocating 6 bytes for message content */
-			void *data = malloc(6);
-			memcpy (data, buff, 6);
+			// void *data = malloc(6);
+			// memcpy (data, buff, 6);
 			zmq_msg_t msg;
-			rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+			int rc = zmq_msg_init_size (&msg, 6);
+			assert(rc == 0);
+			/* Fill in message content with 'AAAAAA' */
+			memset (zmq_msg_data (&msg), 'A', 6);
+			/* Send the message to the socket */
+
 			rc = zmq_msg_send (&msg, push_gps, 0);
+			if(rc < 0) {
+    			fprintf (stderr, "Error code %d\n", errno);
+    			fprintf (stderr, "Unable to publish gps message %s\n", strerror (errno));
+				exit(1);
+			}
+			// rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+			// rc = zmq_msg_send (&msg, push_gps, 0);
 			is_GGA_received_completely = 0;
 		}
 	}
@@ -155,6 +178,7 @@ void *create_magnetometer_listener(void* zmq_ctx)
 	terminate_magnetometer = false;
 
 	/* Initialize socket */
+	//printf("Initilizing magnet data publish socket.\n");
   	push_magnet = zmq_socket (zmq_ctx, ZMQ_PUB); 
 	/* Bind it to a in-process transport with the address 'magnet' */
 	int rc = zmq_bind (push_magnet, "inproc://magnet");
@@ -201,8 +225,14 @@ void *create_magnetometer_listener(void* zmq_ctx)
 		void *data = malloc(6);
 		memcpy (data, s, 6);
 		zmq_msg_t msg;
-		rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+		int rc = zmq_msg_init_size (&msg, 6);
+		/* Fill in message content with 'AAAAAA' */
+		memset (zmq_msg_data (&msg), 'A', 6);
+		/* Send the message to the socket */
 		rc = zmq_msg_send (&msg, push_magnet, 0);
+
+		//rc = zmq_msg_init_data (&msg, data, 6, NULL, NULL);
+		//rc = zmq_msg_send (&msg, push_magnet, 0);
 	}
 }
 
