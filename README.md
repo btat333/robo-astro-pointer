@@ -1,4 +1,4 @@
-# robo-astro-pointer
+## robo-astro-pointer
 
 # Next steps:
 *How to wait for all threads to close gracefully so that I can still kill the program? Make the program recieve the ctrl-c kill command
