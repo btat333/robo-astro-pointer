@@ -13,10 +13,41 @@
 #include "acs.h"
 
 void* zmq_ctx;
-pthread_mutex_t *gps_mutex;
-pthread_mutex_t *magnet_mutex;
+pthread_mutex_t gps_mutex;
+pthread_mutex_t magnet_mutex;
 struct GPSPointSolution gps;
 int has_gps = 0;
+
+
+void * listen_gps_updates ()
+{
+
+    /* Initialize socket */
+    printf("Initilizing gps subscription socket.\n");
+    void* pull = zmq_socket(zmq_ctx, ZMQ_SUB);
+    int rc = zmq_connect (pull, "tcp://localhost:5555");
+    rc = zmq_setsockopt (pull, ZMQ_SUBSCRIBE, GPS_TOPIC, GPS_TOPIC_LENGTH);
+	assert(rc == 0);
+
+    //printf("Pointer arm waiting for GPS updates.\n");
+
+    while(1){
+	  
+        printf("Receiving message...\n");
+        fflush(stdout);
+        /* Block until a message is available to be received from socket */
+        //printf("Looping and waiting on a gps message...\n");
+        char *string = s_recv(pull);
+        printf("Parsing message...\n");
+        pthread_mutex_lock(&gps_mutex);
+        struct GPSPointSolution gps = parse_gps(string);
+        has_gps = 1;
+        pthread_mutex_unlock(&gps_mutex);
+
+        fprintf(stdout,"%f\n",gps.longitude);
+    }
+
+}
 
 int main (int argc, char **argv)
 {
@@ -59,34 +90,4 @@ int main (int argc, char **argv)
     pthread_mutex_destroy(&gps_mutex);
     pthread_mutex_destroy(&magnet_mutex);
 	return 0;
-}
-
-void * listen_gps_updates ()
-{
-
-    /* Initialize socket */
-    printf("Initilizing gps subscription socket.\n");
-    void* pull = zmq_socket(zmq_ctx, ZMQ_SUB);
-    int rc = zmq_connect (pull, "tcp://localhost:5555");
-    rc = zmq_setsockopt (pull, ZMQ_SUBSCRIBE, GPS_TOPIC, GPS_TOPIC_LENGTH);
-	assert(rc == 0);
-
-    //printf("Pointer arm waiting for GPS updates.\n");
-
-    while(1){
-	  
-        printf("Receiving message...\n");
-        fflush(stdout);
-        /* Block until a message is available to be received from socket */
-        //printf("Looping and waiting on a gps message...\n");
-        char *string = s_recv(pull);
-        printf("Parsing message...\n");
-        pthread_mutex_lock(&gps_mutex);
-        struct GPSPointSolution gps = parse_gps(string);
-        has_gps = 1;
-        pthread_mutex_unlock(&gps_mutex);
-
-        fprintf(stdout,"%f\n",gps.longitude);
-    }
-
 }

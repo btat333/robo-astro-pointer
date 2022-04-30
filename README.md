@@ -13,7 +13,7 @@
 ```
 gcc -o gps gps.c -l zmq -l wiringPi
 
-gcc -o acs acs.c ../util/models.c -l zmq
+gcc -o acs acs.c ../util/models.c -l zmq -l pthread
 
 gcc -o pointer pointer.c ../util/models.c -l zmq
 
