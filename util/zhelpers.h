@@ -39,9 +39,6 @@
 #   define random rand
 #endif
 
-//  Provide random number from 0..(num-1)
-#define randof(num)  (int) ((float) (num) * random () / (RAND_MAX + 1.0))
-
 //  Receive 0MQ string from socket and convert into C string
 //  Caller must free returned string. Returns NULL if the context
 //  is being terminated.
@@ -121,30 +118,6 @@ s_dump (void *socket)
     rc = zmq_msg_close (&message);
     assert (rc == 0);
 }
-
-#if (!defined (WIN32))
-//  Set simple random printable identity on socket
-//  Caution:
-//    DO NOT call this version of s_set_id from multiple threads on MS Windows
-//    since s_set_id will call rand() on MS Windows. rand(), however, is not 
-//    reentrant or thread-safe. See issue #521.
-static void
-s_set_id (void *socket)
-{
-    char identity [10];
-    sprintf (identity, "%04X-%04X", randof (0x10000), randof (0x10000));
-    zmq_setsockopt (socket, ZMQ_IDENTITY, identity, strlen (identity));
-}
-#else
-//  Fix #521 for MS Windows.
-static void
-s_set_id(void *socket, intptr_t id)
-{
-    char identity [10];
-    sprintf(identity, "%04X", (int)id);
-    zmq_setsockopt(socket, ZMQ_IDENTITY, identity, strlen(identity));
-}
-#endif
 
 //  Sleep for a number of milliseconds
 static void

@@ -15,6 +15,19 @@
 #include <zmq.h>
 #include "zhelpers.h"
 
+#define DEVICE 0x1e   // HMC5883L magnetometer device address
+
+//some MPU6050 Registers and their Address
+#define REGISTER_A 0             //Address of Configuration register A
+#define REGISTER_B 0x01          //Address of configuration register B
+#define REGISTER_MODE 0x02           //Address of mode register
+
+#define X_AXIS_H 0x03              //Address of X-axis MSB data register
+#define Z_AXIS_H 0x05              //Address of Z-axis MSB data register
+#define Y_AXIS_H 0x07              //Address of Y-axis MSB data register
+#define DEC_OFFSET -0.00669          //define declination angle of location where measurement going to be done
+#define PI 3.14159265359    //define pi value
+
 int magnetometer_init(int fd){
 
 	int err = 0;
@@ -70,11 +83,10 @@ void *create_magnetometer_listener(void* zmq_ctx)
 	double declination;
 	double heading_angle;
 	char s[50];
-	terminate_magnetometer = false;
 
 	/* Initialize socket */
 	//printf("Initilizing magnet data publish socket.\n");
-  	push_magnet = zmq_socket (zmq_ctx, ZMQ_PUB); 
+  	void *push_magnet = zmq_socket (zmq_ctx, ZMQ_PUB); 
 	/* Bind it to a in-process transport with the address 'magnet' */
 	int rc = zmq_bind (push_magnet, "inproc://magnet");
 
@@ -94,7 +106,7 @@ void *create_magnetometer_listener(void* zmq_ctx)
 
 	magnetometer_init(fd);     // initialize HMC5883L magnetometer 
 
-	while(!terminate_magnetometer){
+	while(1){
     
         //Read Accelerometer raw value
         x = read_raw_data(fd, X_AXIS_H);
