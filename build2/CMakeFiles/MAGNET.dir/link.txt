@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/MAGNET.dir/magnetometer.c.o -o MAGNET  Util/libUtils.a -lzmq -lwiringPi -lm 

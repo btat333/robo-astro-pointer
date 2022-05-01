@@ -2,6 +2,7 @@
 #ifndef __MODELS_H_INCLUDED__
 #define __MODELS_H_INCLUDED__
 
+// Represents an instantaneous measurment returned from the GPS reciever
 struct GPSPointSolution {
   float latitude; // Assumes north for now [dd][mm.mmmm]
   float longitude; // Assumes west for now [ddd][mm.mmmm]
@@ -10,7 +11,18 @@ struct GPSPointSolution {
   int sat_num; // number of visible gps satellites.  less than 4 is bad.
 };
 
-/* Produces a struct from the gps point solution message */
+// Represents an instantaneous measurement from the magnetometer
+struct MagnetometerMeasurement {
+  double x; // X axis magnetometer reading
+  double y; // Y axis magnetometer reading
+  double z; // Z axis magnetometer reading
+};
+
+// Functions
 struct GPSPointSolution parse_gps (char *msg);
+
+void * serialize_magnetometer_data(struct MagnetometerMeasurement meas, char * out_string);
+
+void * parse_magnetomer_data(char * mm_string, struct MagnetometerMeasurement * meas);
 
 #endif  //  __MODELS_H_INCLUDED__

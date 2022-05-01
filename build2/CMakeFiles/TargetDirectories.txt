@@ -1,0 +1,16 @@
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/test.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build2/CMakeFiles/MAGNET.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/test.dir
+/home/pi/Documents/robo-astro-pointer/build2/Util/CMakeFiles/Utils.dir

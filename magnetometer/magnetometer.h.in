@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define MAGNET_VERSION_MAJOR @MAGNET_VERSION_MAJOR@
+#define MAGNET_VERSION_MINOR @MAGNET_VERSION_MINOR@

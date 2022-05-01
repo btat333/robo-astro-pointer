@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define GPS_VERSION_MAJOR @GPS_VERSION_MAJOR@
+#define GPS_VERSION_MINOR @GPS_VERSION_MINOR@

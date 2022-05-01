@@ -1,0 +1,6 @@
+/usr/local/lib/libUtils.a
+/usr/local/include/models.h
+/usr/local/include/registry.h
+/usr/local/include/zhelpers.h
+/usr/local/bin/MAGNET
+/usr/local/include/magnetometer.h

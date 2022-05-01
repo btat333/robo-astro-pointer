@@ -12,26 +12,11 @@
 #include <wiringPi.h>
 #include <wiringSerial.h>
 #include <zmq.h>
-#include "../util/registry.h"
-#include "../util/zhelpers.h"
+#include "registry.h"
+#include "zhelpers.h"
 
 #include "gps.h"
 
-int main (int argc, char **argv)
-{
-
-	fprintf (stdout, "Initializing zeromq context.\n");
-
-	void* zmq_ctx = zmq_ctx_new();
-	int error_num;
-	fprintf (stdout, "Initilizing gps.\n");
-
-	create_gps_listener(zmq_ctx);
-
-    zmq_ctx_destroy(zmq_ctx);
-
-	return 0;
-}
 
 void *create_gps_listener (void* zmq_ctx)
 {
@@ -44,7 +29,7 @@ void *create_gps_listener (void* zmq_ctx)
   /* Initialize socket */
   printf("Initilizing gps data publish socket.\n");
   void *push_gps = zmq_socket (zmq_ctx, ZMQ_PUB); 
-  int rc = zmq_bind (push_gps, "tcp://*:5555");
+  int rc = zmq_bind (push_gps, GPS_PUBLISH_URL);
   if (rc != 0) {
 	fprintf (stderr, "Unable to bind gps publisher: %s\n", strerror (errno)) ;
 	exit(1);
@@ -90,10 +75,27 @@ void *create_gps_listener (void* zmq_ctx)
 			}
 		  }
 		if(is_GGA_received_completely==1){
-			char out[200] = GPS_TOPIC;
+			char out[200] = "";
 			strcat(out, buff);
 			s_send(push_gps,out);
 			is_GGA_received_completely = 0;
 		}
 	}
 }
+
+int main (int argc, char **argv)
+{
+
+	fprintf (stdout, "Initializing zeromq context.\n");
+
+	void* zmq_ctx = zmq_ctx_new();
+	int error_num;
+	fprintf (stdout, "Initilizing gps.\n");
+
+	create_gps_listener(zmq_ctx);
+
+    zmq_ctx_destroy(zmq_ctx);
+
+	return 0;
+}
+
