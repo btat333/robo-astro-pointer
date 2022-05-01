@@ -7,12 +7,17 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "../CMakeLists.txt"
+  "../acs/CMakeLists.txt"
+  "../acs/acs.h.in"
   "CMakeFiles/3.18.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeSystem.cmake"
-  "/home/pi/Documents/robo-astro-pointer/gps/CMakeLists.txt"
-  "/home/pi/Documents/robo-astro-pointer/gps/gps.h.in"
-  "/home/pi/Documents/robo-astro-pointer/util/CMakeLists.txt"
+  "../gps/CMakeLists.txt"
+  "../gps/gps.h.in"
+  "../magnetometer/CMakeLists.txt"
+  "../magnetometer/magnetometer.h.in"
+  "../util/CMakeLists.txt"
   "/usr/share/cmake-3.18/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.18/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.18/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -42,13 +47,22 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "gps.h"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Util/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "gps/gps.h"
+  "gps/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "gps/Util/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "magnetometer/magnetometer.h"
+  "magnetometer/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "magnetometer/Util/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "acs/acs.h"
+  "acs/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "acs/Util/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/GPS.dir/DependInfo.cmake"
-  "Util/CMakeFiles/Utils.dir/DependInfo.cmake"
+  "gps/CMakeFiles/GPS.dir/DependInfo.cmake"
+  "gps/Util/CMakeFiles/Utils.dir/DependInfo.cmake"
+  "magnetometer/CMakeFiles/MAGNET.dir/DependInfo.cmake"
+  "acs/CMakeFiles/ACS.dir/DependInfo.cmake"
   )

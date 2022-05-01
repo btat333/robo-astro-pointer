@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define ACS_VERSION_MAJOR @ACS_VERSION_MAJOR@
+#define ACS_VERSION_MINOR @ACS_VERSION_MINOR@

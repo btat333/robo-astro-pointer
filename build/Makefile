@@ -67,7 +67,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Documents/robo-astro-pointer/gps
+CMAKE_SOURCE_DIR = /home/pi/Documents/robo-astro-pointer
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/pi/Documents/robo-astro-pointer/build
@@ -86,6 +86,18 @@ install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -131,29 +143,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles /home/pi/Documents/robo-astro-pointer/build//CMakeFiles/progress.marks
@@ -196,7 +185,7 @@ GPS: cmake_check_build_system
 
 # fast build rule for target.
 GPS/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/build
+	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/build
 .PHONY : GPS/fast
 
 #=============================================================================
@@ -209,35 +198,34 @@ Utils: cmake_check_build_system
 
 # fast build rule for target.
 Utils/fast:
-	$(MAKE) $(MAKESILENT) -f Util/CMakeFiles/Utils.dir/build.make Util/CMakeFiles/Utils.dir/build
+	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/build
 .PHONY : Utils/fast
 
-gps.o: gps.c.o
+#=============================================================================
+# Target rules for targets named MAGNET
 
-.PHONY : gps.o
+# Build rule for target.
+MAGNET: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MAGNET
+.PHONY : MAGNET
 
-# target to build an object file
-gps.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/gps.c.o
-.PHONY : gps.c.o
+# fast build rule for target.
+MAGNET/fast:
+	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/build
+.PHONY : MAGNET/fast
 
-gps.i: gps.c.i
+#=============================================================================
+# Target rules for targets named ACS
 
-.PHONY : gps.i
+# Build rule for target.
+ACS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ACS
+.PHONY : ACS
 
-# target to preprocess a source file
-gps.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/gps.c.i
-.PHONY : gps.c.i
-
-gps.s: gps.c.s
-
-.PHONY : gps.s
-
-# target to generate assembly for a file
-gps.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/gps.c.s
-.PHONY : gps.c.s
+# fast build rule for target.
+ACS/fast:
+	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/build
+.PHONY : ACS/fast
 
 # Help Target
 help:
@@ -251,12 +239,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... test"
+	@echo "... ACS"
 	@echo "... GPS"
+	@echo "... MAGNET"
 	@echo "... Utils"
-	@echo "... gps.o"
-	@echo "... gps.i"
-	@echo "... gps.s"
 .PHONY : help
 
 

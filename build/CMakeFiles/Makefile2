@@ -63,7 +63,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Documents/robo-astro-pointer/gps
+CMAKE_SOURCE_DIR = /home/pi/Documents/robo-astro-pointer
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/pi/Documents/robo-astro-pointer/build
@@ -72,93 +72,247 @@ CMAKE_BINARY_DIR = /home/pi/Documents/robo-astro-pointer/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/GPS.dir/all
-all: Util/all
+all: gps/all
+all: magnetometer/all
+all: acs/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: Util/preinstall
+preinstall: gps/preinstall
+preinstall: magnetometer/preinstall
+preinstall: acs/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/GPS.dir/clean
-clean: Util/clean
+clean: gps/clean
+clean: magnetometer/clean
+clean: acs/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory Util
+# Directory level rules for directory acs
 
 # Recursive "all" directory target.
-Util/all: Util/CMakeFiles/Utils.dir/all
+acs/all: acs/CMakeFiles/ACS.dir/all
+acs/all: acs/Util/all
 
-.PHONY : Util/all
+.PHONY : acs/all
 
 # Recursive "preinstall" directory target.
-Util/preinstall:
+acs/preinstall: acs/Util/preinstall
 
-.PHONY : Util/preinstall
+.PHONY : acs/preinstall
 
 # Recursive "clean" directory target.
-Util/clean: Util/CMakeFiles/Utils.dir/clean
+acs/clean: acs/CMakeFiles/ACS.dir/clean
+acs/clean: acs/Util/clean
 
-.PHONY : Util/clean
+.PHONY : acs/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/GPS.dir
+# Directory level rules for directory acs/Util
+
+# Recursive "all" directory target.
+acs/Util/all:
+
+.PHONY : acs/Util/all
+
+# Recursive "preinstall" directory target.
+acs/Util/preinstall:
+
+.PHONY : acs/Util/preinstall
+
+# Recursive "clean" directory target.
+acs/Util/clean:
+
+.PHONY : acs/Util/clean
+
+#=============================================================================
+# Directory level rules for directory gps
+
+# Recursive "all" directory target.
+gps/all: gps/CMakeFiles/GPS.dir/all
+gps/all: gps/Util/all
+
+.PHONY : gps/all
+
+# Recursive "preinstall" directory target.
+gps/preinstall: gps/Util/preinstall
+
+.PHONY : gps/preinstall
+
+# Recursive "clean" directory target.
+gps/clean: gps/CMakeFiles/GPS.dir/clean
+gps/clean: gps/Util/clean
+
+.PHONY : gps/clean
+
+#=============================================================================
+# Directory level rules for directory gps/Util
+
+# Recursive "all" directory target.
+gps/Util/all: gps/Util/CMakeFiles/Utils.dir/all
+
+.PHONY : gps/Util/all
+
+# Recursive "preinstall" directory target.
+gps/Util/preinstall:
+
+.PHONY : gps/Util/preinstall
+
+# Recursive "clean" directory target.
+gps/Util/clean: gps/Util/CMakeFiles/Utils.dir/clean
+
+.PHONY : gps/Util/clean
+
+#=============================================================================
+# Directory level rules for directory magnetometer
+
+# Recursive "all" directory target.
+magnetometer/all: magnetometer/CMakeFiles/MAGNET.dir/all
+magnetometer/all: magnetometer/Util/all
+
+.PHONY : magnetometer/all
+
+# Recursive "preinstall" directory target.
+magnetometer/preinstall: magnetometer/Util/preinstall
+
+.PHONY : magnetometer/preinstall
+
+# Recursive "clean" directory target.
+magnetometer/clean: magnetometer/CMakeFiles/MAGNET.dir/clean
+magnetometer/clean: magnetometer/Util/clean
+
+.PHONY : magnetometer/clean
+
+#=============================================================================
+# Directory level rules for directory magnetometer/Util
+
+# Recursive "all" directory target.
+magnetometer/Util/all:
+
+.PHONY : magnetometer/Util/all
+
+# Recursive "preinstall" directory target.
+magnetometer/Util/preinstall:
+
+.PHONY : magnetometer/Util/preinstall
+
+# Recursive "clean" directory target.
+magnetometer/Util/clean:
+
+.PHONY : magnetometer/Util/clean
+
+#=============================================================================
+# Target rules for target gps/CMakeFiles/GPS.dir
 
 # All Build rule for target.
-CMakeFiles/GPS.dir/all: Util/CMakeFiles/Utils.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=1,2 "Built target GPS"
-.PHONY : CMakeFiles/GPS.dir/all
+gps/CMakeFiles/GPS.dir/all: gps/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/depend
+	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=3,4 "Built target GPS"
+.PHONY : gps/CMakeFiles/GPS.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/GPS.dir/rule: cmake_check_build_system
+gps/CMakeFiles/GPS.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GPS.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gps/CMakeFiles/GPS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : CMakeFiles/GPS.dir/rule
+.PHONY : gps/CMakeFiles/GPS.dir/rule
 
 # Convenience name for target.
-GPS: CMakeFiles/GPS.dir/rule
+GPS: gps/CMakeFiles/GPS.dir/rule
 
 .PHONY : GPS
 
 # clean rule for target.
-CMakeFiles/GPS.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/clean
-.PHONY : CMakeFiles/GPS.dir/clean
+gps/CMakeFiles/GPS.dir/clean:
+	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/clean
+.PHONY : gps/CMakeFiles/GPS.dir/clean
 
 #=============================================================================
-# Target rules for target Util/CMakeFiles/Utils.dir
+# Target rules for target gps/Util/CMakeFiles/Utils.dir
 
 # All Build rule for target.
-Util/CMakeFiles/Utils.dir/all:
-	$(MAKE) $(MAKESILENT) -f Util/CMakeFiles/Utils.dir/build.make Util/CMakeFiles/Utils.dir/depend
-	$(MAKE) $(MAKESILENT) -f Util/CMakeFiles/Utils.dir/build.make Util/CMakeFiles/Utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=3,4 "Built target Utils"
-.PHONY : Util/CMakeFiles/Utils.dir/all
+gps/Util/CMakeFiles/Utils.dir/all:
+	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/depend
+	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=7,8 "Built target Utils"
+.PHONY : gps/Util/CMakeFiles/Utils.dir/all
 
 # Build rule for subdir invocation for target.
-Util/CMakeFiles/Utils.dir/rule: cmake_check_build_system
+gps/Util/CMakeFiles/Utils.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gps/Util/CMakeFiles/Utils.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : Util/CMakeFiles/Utils.dir/rule
+.PHONY : gps/Util/CMakeFiles/Utils.dir/rule
 
 # Convenience name for target.
-Utils: Util/CMakeFiles/Utils.dir/rule
+Utils: gps/Util/CMakeFiles/Utils.dir/rule
 
 .PHONY : Utils
 
 # clean rule for target.
-Util/CMakeFiles/Utils.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Util/CMakeFiles/Utils.dir/build.make Util/CMakeFiles/Utils.dir/clean
-.PHONY : Util/CMakeFiles/Utils.dir/clean
+gps/Util/CMakeFiles/Utils.dir/clean:
+	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/clean
+.PHONY : gps/Util/CMakeFiles/Utils.dir/clean
+
+#=============================================================================
+# Target rules for target magnetometer/CMakeFiles/MAGNET.dir
+
+# All Build rule for target.
+magnetometer/CMakeFiles/MAGNET.dir/all: gps/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/depend
+	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=5,6 "Built target MAGNET"
+.PHONY : magnetometer/CMakeFiles/MAGNET.dir/all
+
+# Build rule for subdir invocation for target.
+magnetometer/CMakeFiles/MAGNET.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 magnetometer/CMakeFiles/MAGNET.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : magnetometer/CMakeFiles/MAGNET.dir/rule
+
+# Convenience name for target.
+MAGNET: magnetometer/CMakeFiles/MAGNET.dir/rule
+
+.PHONY : MAGNET
+
+# clean rule for target.
+magnetometer/CMakeFiles/MAGNET.dir/clean:
+	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/clean
+.PHONY : magnetometer/CMakeFiles/MAGNET.dir/clean
+
+#=============================================================================
+# Target rules for target acs/CMakeFiles/ACS.dir
+
+# All Build rule for target.
+acs/CMakeFiles/ACS.dir/all: gps/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/depend
+	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=1,2 "Built target ACS"
+.PHONY : acs/CMakeFiles/ACS.dir/all
+
+# Build rule for subdir invocation for target.
+acs/CMakeFiles/ACS.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 acs/CMakeFiles/ACS.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : acs/CMakeFiles/ACS.dir/rule
+
+# Convenience name for target.
+ACS: acs/CMakeFiles/ACS.dir/rule
+
+.PHONY : ACS
+
+# clean rule for target.
+acs/CMakeFiles/ACS.dir/clean:
+	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/clean
+.PHONY : acs/CMakeFiles/ACS.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

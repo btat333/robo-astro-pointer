@@ -5,7 +5,7 @@ project(MAGNET VERSION 1.0)
 
 configure_file(magnetometer.h.in magnetometer.h)
 
-# add the MathFunctions library
+# add the Util library
 add_subdirectory(../util Util)
 
 # add the executable

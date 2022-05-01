@@ -1,4 +1,6 @@
-add_library(Utils models.c)
+if(NOT TARGET Utils)
+    add_library(Utils models.c)
+endif()
 
 target_include_directories(Utils
           INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
