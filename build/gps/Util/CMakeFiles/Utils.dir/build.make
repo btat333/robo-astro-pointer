@@ -89,17 +89,32 @@ gps/Util/CMakeFiles/Utils.dir/models.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Utils.dir/models.c.s"
 	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Documents/robo-astro-pointer/util/models.c -o CMakeFiles/Utils.dir/models.c.s
 
+gps/Util/CMakeFiles/Utils.dir/network.c.o: gps/Util/CMakeFiles/Utils.dir/flags.make
+gps/Util/CMakeFiles/Utils.dir/network.c.o: ../util/network.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object gps/Util/CMakeFiles/Utils.dir/network.c.o"
+	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Utils.dir/network.c.o -c /home/pi/Documents/robo-astro-pointer/util/network.c
+
+gps/Util/CMakeFiles/Utils.dir/network.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Utils.dir/network.c.i"
+	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Documents/robo-astro-pointer/util/network.c > CMakeFiles/Utils.dir/network.c.i
+
+gps/Util/CMakeFiles/Utils.dir/network.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Utils.dir/network.c.s"
+	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Documents/robo-astro-pointer/util/network.c -o CMakeFiles/Utils.dir/network.c.s
+
 # Object files for target Utils
 Utils_OBJECTS = \
-"CMakeFiles/Utils.dir/models.c.o"
+"CMakeFiles/Utils.dir/models.c.o" \
+"CMakeFiles/Utils.dir/network.c.o"
 
 # External object files for target Utils
 Utils_EXTERNAL_OBJECTS =
 
 gps/Util/libUtils.a: gps/Util/CMakeFiles/Utils.dir/models.c.o
+gps/Util/libUtils.a: gps/Util/CMakeFiles/Utils.dir/network.c.o
 gps/Util/libUtils.a: gps/Util/CMakeFiles/Utils.dir/build.make
 gps/Util/libUtils.a: gps/Util/CMakeFiles/Utils.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libUtils.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libUtils.a"
 	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && $(CMAKE_COMMAND) -P CMakeFiles/Utils.dir/cmake_clean_target.cmake
 	cd /home/pi/Documents/robo-astro-pointer/build/gps/Util && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Utils.dir/link.txt --verbose=$(VERBOSE)
 

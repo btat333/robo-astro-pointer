@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTelemetryUtil.a CMakeFiles/TelemetryUtil.dir/telemetry_util.c.o
+/usr/bin/ranlib libTelemetryUtil.a

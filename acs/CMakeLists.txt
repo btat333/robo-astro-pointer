@@ -14,7 +14,8 @@ add_executable(ACS acs.c)
 target_link_libraries(ACS 
                         PUBLIC Utils
                         PUBLIC zmq
-                        PUBLIC pthread)
+                        PUBLIC pthread
+                        PUBLIC m)
 
 target_include_directories(ACS PUBLIC
                            "${PROJECT_BINARY_DIR}"

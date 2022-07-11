@@ -227,6 +227,32 @@ ACS/fast:
 	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/build
 .PHONY : ACS/fast
 
+#=============================================================================
+# Target rules for targets named TelemetryUtil
+
+# Build rule for target.
+TelemetryUtil: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TelemetryUtil
+.PHONY : TelemetryUtil
+
+# fast build rule for target.
+TelemetryUtil/fast:
+	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TelemetryUtil.dir/build.make telemetry/CMakeFiles/TelemetryUtil.dir/build
+.PHONY : TelemetryUtil/fast
+
+#=============================================================================
+# Target rules for targets named TELEMETRY
+
+# Build rule for target.
+TELEMETRY: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TELEMETRY
+.PHONY : TELEMETRY
+
+# fast build rule for target.
+TELEMETRY/fast:
+	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/build
+.PHONY : TELEMETRY/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,6 +268,8 @@ help:
 	@echo "... ACS"
 	@echo "... GPS"
 	@echo "... MAGNET"
+	@echo "... TELEMETRY"
+	@echo "... TelemetryUtil"
 	@echo "... Utils"
 .PHONY : help
 

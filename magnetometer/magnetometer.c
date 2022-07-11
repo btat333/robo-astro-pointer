@@ -114,6 +114,8 @@ void *create_magnetometer_listener(void* zmq_ctx)
 		char out[200] = "";
 		serialize_magnetometer_data(mm, out);
 		s_send(push_magnet,out);
+		printf("%s\n",out);
+		fflush(stdout);
 		sleep(1);
 	}
 }

@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/ACS.dir/acs.c.o -o ACS  ../gps/Util/libUtils.a -lzmq -lpthread 
+/usr/bin/cc CMakeFiles/ACS.dir/acs.c.o -o ACS  ../gps/Util/libUtils.a -lzmq -lpthread -lm 

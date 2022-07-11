@@ -6,13 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Documents/robo-astro-pointer/util/models.c
-stdio.h
--
+/home/pi/Documents/robo-astro-pointer/util/network.c
 assert.h
 -
-models.h
-/home/pi/Documents/robo-astro-pointer/util/models.h
+zmq.h
+-
+errno.h
+-
+string.h
+-
+../util/registry.h
+/home/pi/Documents/robo-astro-pointer/util/registry.h
 
-/home/pi/Documents/robo-astro-pointer/util/models.h
+/home/pi/Documents/robo-astro-pointer/util/registry.h
 

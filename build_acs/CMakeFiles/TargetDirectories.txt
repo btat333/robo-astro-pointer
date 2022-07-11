@@ -1,0 +1,16 @@
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/test.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/CMakeFiles/ACS.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/test.dir
+/home/pi/Documents/robo-astro-pointer/build_acs/Util/CMakeFiles/Utils.dir

@@ -4,3 +4,6 @@
 gps/Util/CMakeFiles/Utils.dir/models.c.o: ../util/models.c
 gps/Util/CMakeFiles/Utils.dir/models.c.o: ../util/models.h
 
+gps/Util/CMakeFiles/Utils.dir/network.c.o: ../util/network.c
+gps/Util/CMakeFiles/Utils.dir/network.c.o: ../util/registry.h
+

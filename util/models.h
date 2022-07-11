@@ -23,6 +23,6 @@ struct GPSPointSolution parse_gps (char *msg);
 
 void * serialize_magnetometer_data(struct MagnetometerMeasurement meas, char * out_string);
 
-void * parse_magnetomer_data(char * mm_string, struct MagnetometerMeasurement * meas);
+struct MagnetometerMeasurement parse_magnetomer_data(char * mm_string);
 
 #endif  //  __MODELS_H_INCLUDED__

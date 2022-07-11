@@ -44,3 +44,17 @@
 /home/pi/Documents/robo-astro-pointer/build/acs/Util/CMakeFiles/install/local.dir
 /home/pi/Documents/robo-astro-pointer/build/acs/Util/CMakeFiles/rebuild_cache.dir
 /home/pi/Documents/robo-astro-pointer/build/acs/Util/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/edit_cache.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/TelemetryUtil.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/CMakeFiles/TELEMETRY.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/install/strip.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/install.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/list_install_components.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/install/local.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/rebuild_cache.dir
+/home/pi/Documents/robo-astro-pointer/build/telemetry/Util/CMakeFiles/edit_cache.dir

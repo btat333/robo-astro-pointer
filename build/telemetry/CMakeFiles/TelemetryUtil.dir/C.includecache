@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Documents/robo-astro-pointer/telemetry/telemetry_util.c
+zmq.h
+-
+telemetry_util.h
+/home/pi/Documents/robo-astro-pointer/telemetry/telemetry_util.h
+../util/zhelpers.h
+/home/pi/Documents/robo-astro-pointer/util/zhelpers.h
+
+/home/pi/Documents/robo-astro-pointer/telemetry/telemetry_util.h
+
+/home/pi/Documents/robo-astro-pointer/util/zhelpers.h
+zmq.h
+-
+assert.h
+-
+signal.h
+-
+stdarg.h
+-
+stdint.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+sys/time.h
+-
+windows.h
+-
+

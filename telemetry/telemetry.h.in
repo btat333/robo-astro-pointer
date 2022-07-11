@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define TELEMETRY_VERSION_MAJOR @TELEMETRY_VERSION_MAJOR@
+#define TELEMETRY_VERSION_MINOR @TELEMETRY_VERSION_MINOR@

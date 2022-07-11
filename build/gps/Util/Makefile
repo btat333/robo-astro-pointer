@@ -217,6 +217,33 @@ models.c.s:
 	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/models.c.s
 .PHONY : models.c.s
 
+network.o: network.c.o
+
+.PHONY : network.o
+
+# target to build an object file
+network.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.o
+.PHONY : network.c.o
+
+network.i: network.c.i
+
+.PHONY : network.i
+
+# target to preprocess a source file
+network.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.i
+.PHONY : network.c.i
+
+network.s: network.c.s
+
+.PHONY : network.s
+
+# target to generate assembly for a file
+network.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.s
+.PHONY : network.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -233,6 +260,9 @@ help:
 	@echo "... models.o"
 	@echo "... models.i"
 	@echo "... models.s"
+	@echo "... network.o"
+	@echo "... network.i"
+	@echo "... network.s"
 .PHONY : help
 
 

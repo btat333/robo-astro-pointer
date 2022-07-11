@@ -1,5 +1,5 @@
 if(NOT TARGET Utils)
-    add_library(Utils models.c)
+    add_library(Utils models.c network.c)
 endif()
 
 target_include_directories(Utils
@@ -10,3 +10,4 @@ install(TARGETS Utils DESTINATION lib)
 install(FILES models.h DESTINATION include)
 install(FILES registry.h DESTINATION include)
 install(FILES zhelpers.h DESTINATION include)
+install(FILES network.h DESTINATION include)
