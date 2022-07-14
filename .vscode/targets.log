@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for arm-unknown-linux-gnueabihf
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 22:39:27 2022
+# Make data base, printed on Thu Jul 14 12:43:54 2022
 
 # Variables
 
@@ -51,7 +49,7 @@ MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/pi/Documents/robo-astro-pointer
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -89,7 +87,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/pi/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/remote-cli:/home/pi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/snap/bin
+PATH = /home/pi/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/bin/remote-cli:/home/pi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -99,7 +97,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 192.168.200.117 50463 22
+SSH_CLIENT = 192.168.200.117 50829 22
 # automatic
 ?F = $(notdir $?)
 # environment
@@ -109,7 +107,7 @@ LS_COLORS =
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-BROWSER = /home/pi/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/helpers/browser.sh
+BROWSER = /home/pi/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/bin/helpers/browser.sh
 # environment
 LOGNAME = pi
 # makefile
@@ -121,11 +119,11 @@ MAKE_VERSION := 4.3
 # environment
 VSCODE_AGENT_FOLDER = /home/pi/.vscode-server
 # environment
-_ = /home/pi/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
+_ = /home/pi/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/node
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-14afd912-0404-4d8f-8d9a-41714aba2dd1.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-281749fe-e08b-4b31-9425-5991efd38789.sock
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -135,7 +133,7 @@ HOME = /home/pi
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-XDG_SESSION_ID = 17
+XDG_SESSION_ID = 5
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -145,7 +143,7 @@ SUFFIXES :=
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SSH_CONNECTION = 192.168.200.117 50463 192.168.200.214 22
+SSH_CONNECTION = 192.168.200.117 50829 192.168.200.214 22
 # variable set hash-table stats:
 # Load=67/1024=7%, Rehash=0, Collisions=1/94=1%
 
@@ -207,12 +205,14 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 30 / storage = 277 B / avg = 9 B
-# current buf: size = 8174 B / used = 277 B / count = 30 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 30 / storage = 269 B / avg = 8 B
+# current buf: size = 8174 B / used = 269 B / count = 30 / avg = 8 B
 
 # strcache performance: lookups = 33 / hit rate = 9%
 # hash-table stats:
 # Load=30/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Sun Jul 10 22:39:27 2022
+# Finished Make data base on Thu Jul 14 12:43:54 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

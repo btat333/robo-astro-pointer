@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <assert.h>
 
 #include "models.h"
@@ -8,13 +9,14 @@ struct GPSPointSolution parse_gps(char *msg)
 {
     
     struct GPSPointSolution gps;
-    float time;
+    double time;
     char north[1];
     char west[1];
     int type;
-    char *rest;
-    int f = sscanf( msg, "%f,%f,%1s,%f,%1s,%d,%d,%f,%f,%s", &time, &gps.latitude, north, 
-                    &gps.longitude, west, &type, &gps.sat_num, &gps.hdop, &gps.altitude, rest);
+    char remainder [200];
+    printf("%s\n",msg);
+    int f = sscanf( msg, "%lf,%lf,%1s,%lf,%1s,%d,%d,%f,%lf,%s", &time, &gps.latitude, north, 
+                    &gps.longitude, west, &type, &gps.sat_num, &gps.hdop, &gps.altitude, remainder);
 
     return gps;
 }
@@ -34,8 +36,10 @@ struct MagnetometerMeasurement parse_magnetomer_data(char * mm_string)
     double x = 0;
     double y = 0;
     double z = 0;
-    int f = sscanf( mm_string, "%f,%f,%f", &x, &y, &z);
-    assert(f >= 0);
+    char remainder [200];
+
+    sscanf( mm_string, "%lf,%lf,%lf%s", &x, &y, &z, remainder);
+
     meas.x = x;
     meas.y = y;
     meas.z = z;

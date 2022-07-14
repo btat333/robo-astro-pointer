@@ -25,7 +25,8 @@ void * listen_magnet_updates ()
     /* Initialize socket */
     printf("Initilizing test of telemetry socket.\n");
     int conflate = 1;
-    void* pull = create_subscription(zmq_ctx, "tcp://localhost:5558", conflate); 
+    int bind = 0;
+    void* pull = create_subscription(zmq_ctx, "tcp://localhost:5559", conflate, bind); 
 
     while(1){
 	  

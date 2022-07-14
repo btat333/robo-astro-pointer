@@ -12,5 +12,6 @@
         "type_traits": "c",
         "utility": "c"
     },
-    "cmake.sourceDirectory": "${workspaceFolder}/gps"
+    "cmake.sourceDirectory": "${workspaceFolder}/gps",
+    "cmake.configureOnOpen": false
 }

@@ -11,6 +11,7 @@ void* create_tlm_string(char* packet, char* mnemonic,  char* value, char* out_st
 
 void* create_tlm_double(char* packet, char* mnemonic,  double value, char* out_string) 
 {
+    printf("%f\n",value);
     int f = sprintf( out_string, "%s.%s:%lf", packet, mnemonic, value);
     assert(f >= 0);
 }

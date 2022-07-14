@@ -3,7 +3,9 @@
 #define __REGISTRY_H_INCLUDED__
 
 // Addresses
-#define TELEMETRY_PUBLISH_URL "tcp://*:5558"
+#define TELEMETRY_REPUBLISH_URL "tcp://*:5559"
+#define TELEMETRY_PUBLISH_URL "tcp://localhost:5558"
+#define TELEMETRY_SUBSCRIBE_URL "tcp://*:5558"
 #define GPS_PUBLISH_URL "tcp://*:5555"
 #define GPS_SUBSCRIBE_URL "tcp://localhost:5555" // Port number for GPS reciever data
 #define MAGNET_PUBLISH_URL "tcp://*:5556"

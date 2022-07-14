@@ -4,9 +4,9 @@
 
 // Represents an instantaneous measurment returned from the GPS reciever
 struct GPSPointSolution {
-  float latitude; // Assumes north for now [dd][mm.mmmm]
-  float longitude; // Assumes west for now [ddd][mm.mmmm]
-  float altitude; // meters above sea level
+  double latitude; // Assumes north for now [dd][mm.mmmm]
+  double longitude; // Assumes west for now [ddd][mm.mmmm]
+  double altitude; // meters above sea level
   float hdop; // Accuracy of measurement horizontally - <1 is amazing, 1-5 is great/good
   int sat_num; // number of visible gps satellites.  less than 4 is bad.
 };
