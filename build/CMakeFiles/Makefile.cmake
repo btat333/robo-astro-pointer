@@ -13,6 +13,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.18.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeSystem.cmake"
+  "../commands/CMakeLists.txt"
+  "../commands/commands.h.in"
   "../gps/CMakeLists.txt"
   "../gps/gps.h.in"
   "../magnetometer/CMakeLists.txt"
@@ -62,6 +64,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "telemetry/telemetry.h"
   "telemetry/CMakeFiles/CMakeDirectoryInformation.cmake"
   "telemetry/Util/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "commands/commands.h"
+  "commands/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "commands/Util/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -72,4 +77,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "acs/CMakeFiles/ACS.dir/DependInfo.cmake"
   "telemetry/CMakeFiles/TelemetryUtil.dir/DependInfo.cmake"
   "telemetry/CMakeFiles/TELEMETRY.dir/DependInfo.cmake"
+  "commands/CMakeFiles/CMDS.dir/DependInfo.cmake"
   )

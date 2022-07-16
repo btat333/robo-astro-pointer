@@ -253,6 +253,19 @@ TELEMETRY/fast:
 	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/build
 .PHONY : TELEMETRY/fast
 
+#=============================================================================
+# Target rules for targets named CMDS
+
+# Build rule for target.
+CMDS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMDS
+.PHONY : CMDS
+
+# fast build rule for target.
+CMDS/fast:
+	$(MAKE) $(MAKESILENT) -f commands/CMakeFiles/CMDS.dir/build.make commands/CMakeFiles/CMDS.dir/build
+.PHONY : CMDS/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -266,6 +279,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... ACS"
+	@echo "... CMDS"
 	@echo "... GPS"
 	@echo "... MAGNET"
 	@echo "... TELEMETRY"

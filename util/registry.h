@@ -3,6 +3,7 @@
 #define __REGISTRY_H_INCLUDED__
 
 // Addresses
+#define COMMAND_SUBSCRIBE_URL "tcp://*:5560"
 #define TELEMETRY_REPUBLISH_URL "tcp://*:5559"
 #define TELEMETRY_PUBLISH_URL "tcp://localhost:5558"
 #define TELEMETRY_SUBSCRIBE_URL "tcp://*:5558"

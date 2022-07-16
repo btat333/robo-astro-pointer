@@ -11,8 +11,6 @@ void* create_subscription(void* zmq_ctx, char* url, int conflate_bool, int bind_
     printf("Initilizing subscription socket for %s.\n",url);
     void* pull = zmq_socket(zmq_ctx, ZMQ_SUB);
     int rc = 0;
-    printf("%d\n",bind_bool);
-    printf("%s\n",url);
     if (bind_bool == 1) {
 	    rc = zmq_bind(pull, url);
     } else {
@@ -40,7 +38,6 @@ void* create_publisher(void* zmq_ctx, char* url, int bind_bool)
   	void *push = zmq_socket (zmq_ctx, ZMQ_PUB); 
 	/* Bind/Connect it to a in-process transport with the address */
     int rc = 0;
-    printf("%s\n",url);
     if (bind_bool == 1) {
 	    rc = zmq_bind(push, url);
     } else {
