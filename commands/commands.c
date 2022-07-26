@@ -27,14 +27,14 @@ void * broker_republish ()
     int conflate = 0;
     int bind = 1;
     void* pull = create_subscription(zmq_ctx, COMMAND_SUBSCRIBE_URL, conflate, bind); 
-    void* push = create_publisher(zmq_ctx, TELEMETRY_REPUBLISH_URL, bind);
+    //void* push = create_publisher(zmq_ctx, TELEMETRY_REPUBLISH_URL, bind);
 
     while(1){
 	  
         /* Block until a message is available to be received from socket */
         char *string_received = s_recv(pull);
         printf("Cmd received: %s",string_received);
-        s_send(push, string_received);
+        //s_send(push, string_received);
     }
 
 }

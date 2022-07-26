@@ -17,7 +17,8 @@ target_link_libraries(TELEMETRY
                         PUBLIC TelemetryUtil
                         PUBLIC zmq
                         PUBLIC pthread
-                        PUBLIC m)
+                        PUBLIC m
+                        PUBLIC ws)
 
 target_include_directories(TELEMETRY PUBLIC
                            "${PROJECT_BINARY_DIR}"

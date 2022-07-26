@@ -7,6 +7,7 @@
 
 #include <math.h>
 #include <pthread.h>
+#include <ws.h>
 #include <zmq.h>
 
 #include "../util/zhelpers.h"
@@ -15,6 +16,11 @@
 #include "../util/network.h"
 #include "telemetry.h"
 #include "telemetry_util.h"
+
+#define FRAME_TYPE 1
+#define THREAD_LOOP 1
+#define TIMEOUT_DURATION 1000
+#define MESSAGE_TARGET NULL
 
 const int conflate = 1;
 
@@ -74,21 +80,42 @@ void * listen_gps_updates ()
 
 }
 
+// Event handlers for web socket
+void onopen(ws_cli_conn_t *client)
+{
+	char *cli;
+	cli = ws_getaddress(client);
+	printf("Connection opened, addr: %s\n", cli);
+}
+
+void onclose(ws_cli_conn_t *client)
+{
+	char *cli;
+	cli = ws_getaddress(client);
+	printf("Connection closed, addr: %s\n", cli);
+}
+
 void * broker_republish ()
 {
+
+    struct ws_events evs;
+	evs.onopen    = &onopen;
+	evs.onclose   = &onclose;
+	ws_socket(&evs, TELEMETRY_WS_PORT, THREAD_LOOP, TIMEOUT_DURATION);
 
     /* Initialize socket */
     printf("Initilizing broker socket.\n");
     int conflate = 0;
     int bind = 1;
     void* pull = create_subscription(zmq_ctx, TELEMETRY_SUBSCRIBE_URL, conflate, bind); 
-    void* push = create_publisher(zmq_ctx, TELEMETRY_REPUBLISH_URL, bind);
 
     while(1){
 	  
         /* Block until a message is available to be received from socket */
         char *string_received = s_recv(pull);
-        s_send(push, string_received);
+	    size_t frame_size = strlen(string_received);
+        printf("size:%d\n",frame_size);
+        ws_sendframe(MESSAGE_TARGET, string_received, frame_size, FRAME_TYPE);
     }
 
 }

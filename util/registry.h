@@ -4,11 +4,13 @@
 
 // Addresses
 #define COMMAND_SUBSCRIBE_URL "tcp://*:5560"
-#define TELEMETRY_REPUBLISH_URL "tcp://*:5559"
+#define TELEMETRY_WS_PORT 5559
 #define TELEMETRY_PUBLISH_URL "tcp://localhost:5558"
 #define TELEMETRY_SUBSCRIBE_URL "tcp://*:5558"
 #define GPS_PUBLISH_URL "tcp://*:5555"
 #define GPS_SUBSCRIBE_URL "tcp://localhost:5555" // Port number for GPS reciever data
+#define GPS_COMMAND_PUBLISH_URL "tcp://*:5561"
+#define GPS_COMMAND_SUBSCRIBE_URL "tcp://*:5561"
 #define MAGNET_PUBLISH_URL "tcp://*:5556"
 #define MAGNET_SUBSCRIBE_URL "tcp://localhost:5556" // Port number for GPS reciever data
 #define ATTITUDE_PUBLISH_URL "tcp://*:5557"
