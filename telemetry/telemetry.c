@@ -114,7 +114,6 @@ void * broker_republish ()
         /* Block until a message is available to be received from socket */
         char *string_received = s_recv(pull);
 	    size_t frame_size = strlen(string_received);
-        printf("size:%d\n",frame_size);
         ws_sendframe(MESSAGE_TARGET, string_received, frame_size, FRAME_TYPE);
     }
 
