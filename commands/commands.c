@@ -8,6 +8,7 @@
 #include <math.h>
 #include <pthread.h>
 #include <zmq.h>
+#include <ws.h>
 
 #include "../util/zhelpers.h"
 #include "../util/models.h"
@@ -18,46 +19,51 @@
 const int conflate = 1;
 
 void* zmq_ctx;
+void *push_cmd;
 
-void * broker_republish ()
+void onopen(ws_cli_conn_t *client)
 {
+	char *cli;
+	cli = ws_getaddress(client);
+	printf("Connection opened, addr: %s\n", cli);
+}
 
-    /* Initialize socket */
-    printf("Initilizing broker socket.\n");
-    int conflate = 0;
-    int bind = 1;
-    void* pull = create_subscription(zmq_ctx, COMMAND_SUBSCRIBE_URL, conflate, bind); 
-    //void* push = create_publisher(zmq_ctx, TELEMETRY_REPUBLISH_URL, bind);
+void onclose(ws_cli_conn_t *client)
+{
+	char *cli;
+	cli = ws_getaddress(client);
+	printf("Connection closed, addr: %s\n", cli);
+}
 
-    while(1){
-	  
-        /* Block until a message is available to be received from socket */
-        char *string_received = s_recv(pull);
-        printf("Cmd received: %s",string_received);
-        //s_send(push, string_received);
-    }
-
+void onmessage(ws_cli_conn_t *client,
+	const unsigned char *msg, uint64_t size, int type)
+{
+	char *cli;
+	cli = ws_getaddress(client);
+    printf("Cmd received: %s",msg);
+    fflush(stdout);
+    s_send(push_cmd,msg);
 }
 
 int main (int argc, char **argv)
 {
 
-	fprintf (stdout, "Initializing zeromq context.\n");
-
-    pthread_t broker;
-
 	zmq_ctx = zmq_ctx_new();
-	int error_num;
-	fprintf (stdout, "Initilizing command broker.\n");
-    if (error_num = pthread_create(&broker, NULL, broker_republish, NULL))
-	{
-		fprintf (stderr, "Unable to start broker: %s\n", strerror (error_num)) ;
-		return 1 ;
-	}
 
-	// Close out the threads as they shut down
-	fprintf(stdout, "Awaiting closure of threads.\n");
-	pthread_join(broker, NULL);
+    printf("Initilizing command publish socket.\n");
+    push_cmd = zmq_socket (zmq_ctx, ZMQ_PUB); 
+    int rc = zmq_bind (push_cmd, COMMAND_PUBLISH_URL);
+    if (rc != 0) {
+        fprintf (stderr, "Unable to bind command publisher: %s\n", strerror (errno)) ;
+        exit(1);
+    }
+
+    struct ws_events evs;
+	evs.onopen    = &onopen;
+	evs.onclose   = &onclose;
+	evs.onmessage = &onmessage;
+	ws_socket(&evs, COMMAND_WS_PORT, 0, 1000); /* Never returns. */
+
     zmq_ctx_destroy(zmq_ctx);
 	return 0;
 }

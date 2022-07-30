@@ -16,7 +16,8 @@ target_link_libraries(CMDS
                         PUBLIC Utils
                         PUBLIC zmq
                         PUBLIC pthread
-                        PUBLIC m)
+                        PUBLIC m
+                        PUBLIC ws)
 
 target_include_directories(CMDS PUBLIC
                            "${PROJECT_BINARY_DIR}"
