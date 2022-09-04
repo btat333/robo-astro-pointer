@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "attitude.h"
 #include "matrix.h"
@@ -41,18 +42,19 @@ int main (int argc, char **argv)
 {
 
 	fprintf (stdout, "Testing attitude util.\n");
-    switch(argv[0][0]) {
+    switch(argv[1][0]) {
 
-        case 1  :
+        case '1'  :
             test_get_euler_rot_3();
             break; 
             
-        case 2  :
+        case '2' :
             test_get_euler_rot_2();
             break; 
         
         /* you can have any number of case statements */
         default : /* Optional */
             printf("Not recognized test enum.");
+            exit(1);
     }
 }

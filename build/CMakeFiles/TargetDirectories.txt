@@ -95,6 +95,7 @@
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/edit_cache.dir
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/install.dir
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/test.dir
+/home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/FrameTest.dir
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/AttitudeTest.dir
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/MatrixTest.dir
 /home/pi/Documents/robo-astro-pointer/build/test/CMakeFiles/install/strip.dir

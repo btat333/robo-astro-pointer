@@ -278,6 +278,19 @@ CMDS/fast:
 .PHONY : CMDS/fast
 
 #=============================================================================
+# Target rules for targets named FrameTest
+
+# Build rule for target.
+FrameTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FrameTest
+.PHONY : FrameTest
+
+# fast build rule for target.
+FrameTest/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/FrameTest.dir/build.make test/CMakeFiles/FrameTest.dir/build
+.PHONY : FrameTest/fast
+
+#=============================================================================
 # Target rules for targets named AttitudeTest
 
 # Build rule for target.
@@ -332,6 +345,7 @@ help:
 	@echo "... ACS"
 	@echo "... AttitudeTest"
 	@echo "... CMDS"
+	@echo "... FrameTest"
 	@echo "... GPS"
 	@echo "... MAGNET"
 	@echo "... MatrixTest"

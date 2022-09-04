@@ -11,7 +11,9 @@
 // ut1l_julian_date - ut1 julian date
 double get_earth_rotation_angle(double ut1_julian_date) {
 
-    return M_PI*(0.7790572732640 + 1.00273781191135448*(ut1_julian_date - 2451545.0));
+    double two_pi = 2*M_PI;
+    double theta = fmod(two_pi*(0.7790572732640 + 1.00273781191135448*(ut1_julian_date - 2451545.0)),two_pi);
+    return theta;
 }
 
 // Returns DCM representing rotation from ECI to ITRF at the specified julian date time

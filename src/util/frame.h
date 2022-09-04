@@ -2,6 +2,10 @@
 #ifndef __FRAME_H_INCLUDED__
 #define __FRAME_H_INCLUDED__
 
+#include <time.h>
+
+#include "matrix.h"
+
 // Earth rotation angle representing rotation from ECI/MJ2000 to ITRF about z-axis due to earth spin (no nutation/precession)
 // ut1l_julian_date - ut1 julian date
 double get_earth_rotation_angle(double ut1_julian_date);

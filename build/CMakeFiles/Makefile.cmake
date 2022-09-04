@@ -82,6 +82,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/telemetry/CMakeFiles/TelemetryUtil.dir/DependInfo.cmake"
   "src/telemetry/CMakeFiles/TELEMETRY.dir/DependInfo.cmake"
   "src/commands/CMakeFiles/CMDS.dir/DependInfo.cmake"
+  "test/CMakeFiles/FrameTest.dir/DependInfo.cmake"
   "test/CMakeFiles/AttitudeTest.dir/DependInfo.cmake"
   "test/CMakeFiles/MatrixTest.dir/DependInfo.cmake"
   "test/CMakeFiles/TimeTest.dir/DependInfo.cmake"
