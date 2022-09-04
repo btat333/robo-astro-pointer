@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/CMDS.dir/commands.c.o -o CMDS  ../gps/Util/libUtils.a -lzmq -lpthread -lm -lws 
+/usr/bin/cc CMakeFiles/CMDS.dir/commands.c.o -o CMDS  ../acs/Util/libUtils.a -lzmq -lpthread -lm -lws 

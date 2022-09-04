@@ -15,10 +15,10 @@
 ########################
 
 //Value Computed by CMake
-ACS_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/acs
+ACS_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/src/acs
 
 //Value Computed by CMake
-ACS_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/acs
+ACS_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/src/acs
 
 //Value Computed by CMake
 ASTRO_POINTER_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build
@@ -237,28 +237,28 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-CMD_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/commands
+CMD_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/src/commands
 
 //Value Computed by CMake
-CMD_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/commands
+CMD_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/src/commands
 
 //Value Computed by CMake
-GPS_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/gps
+GPS_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/src/gps
 
 //Value Computed by CMake
-GPS_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/gps
+GPS_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/src/gps
 
 //Value Computed by CMake
-MAGNET_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/magnetometer
+MAGNET_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/src/magnetometer
 
 //Value Computed by CMake
-MAGNET_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/magnetometer
+MAGNET_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/src/magnetometer
 
 //Value Computed by CMake
-TELEMETRY_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/telemetry
+TELEMETRY_BINARY_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/build/src/telemetry
 
 //Value Computed by CMake
-TELEMETRY_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/telemetry
+TELEMETRY_SOURCE_DIR:STATIC=/home/pi/Documents/robo-astro-pointer/src/telemetry
 
 
 ########################
@@ -365,7 +365,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

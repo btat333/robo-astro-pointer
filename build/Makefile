@@ -87,18 +87,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -143,6 +131,29 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles /home/pi/Documents/robo-astro-pointer/build//CMakeFiles/progress.marks
@@ -176,17 +187,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GPS
+# Target rules for targets named ACS
 
 # Build rule for target.
-GPS: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPS
-.PHONY : GPS
+ACS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ACS
+.PHONY : ACS
 
 # fast build rule for target.
-GPS/fast:
-	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/build
-.PHONY : GPS/fast
+ACS/fast:
+	$(MAKE) $(MAKESILENT) -f src/acs/CMakeFiles/ACS.dir/build.make src/acs/CMakeFiles/ACS.dir/build
+.PHONY : ACS/fast
 
 #=============================================================================
 # Target rules for targets named Utils
@@ -198,8 +209,21 @@ Utils: cmake_check_build_system
 
 # fast build rule for target.
 Utils/fast:
-	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/build
+	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/build
 .PHONY : Utils/fast
+
+#=============================================================================
+# Target rules for targets named GPS
+
+# Build rule for target.
+GPS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPS
+.PHONY : GPS
+
+# fast build rule for target.
+GPS/fast:
+	$(MAKE) $(MAKESILENT) -f src/gps/CMakeFiles/GPS.dir/build.make src/gps/CMakeFiles/GPS.dir/build
+.PHONY : GPS/fast
 
 #=============================================================================
 # Target rules for targets named MAGNET
@@ -211,21 +235,8 @@ MAGNET: cmake_check_build_system
 
 # fast build rule for target.
 MAGNET/fast:
-	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/build
+	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/build
 .PHONY : MAGNET/fast
-
-#=============================================================================
-# Target rules for targets named ACS
-
-# Build rule for target.
-ACS: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ACS
-.PHONY : ACS
-
-# fast build rule for target.
-ACS/fast:
-	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/build
-.PHONY : ACS/fast
 
 #=============================================================================
 # Target rules for targets named TelemetryUtil
@@ -237,7 +248,7 @@ TelemetryUtil: cmake_check_build_system
 
 # fast build rule for target.
 TelemetryUtil/fast:
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TelemetryUtil.dir/build.make telemetry/CMakeFiles/TelemetryUtil.dir/build
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/build
 .PHONY : TelemetryUtil/fast
 
 #=============================================================================
@@ -250,7 +261,7 @@ TELEMETRY: cmake_check_build_system
 
 # fast build rule for target.
 TELEMETRY/fast:
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/build
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/build
 .PHONY : TELEMETRY/fast
 
 #=============================================================================
@@ -263,8 +274,47 @@ CMDS: cmake_check_build_system
 
 # fast build rule for target.
 CMDS/fast:
-	$(MAKE) $(MAKESILENT) -f commands/CMakeFiles/CMDS.dir/build.make commands/CMakeFiles/CMDS.dir/build
+	$(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/CMDS.dir/build.make src/commands/CMakeFiles/CMDS.dir/build
 .PHONY : CMDS/fast
+
+#=============================================================================
+# Target rules for targets named AttitudeTest
+
+# Build rule for target.
+AttitudeTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AttitudeTest
+.PHONY : AttitudeTest
+
+# fast build rule for target.
+AttitudeTest/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/AttitudeTest.dir/build.make test/CMakeFiles/AttitudeTest.dir/build
+.PHONY : AttitudeTest/fast
+
+#=============================================================================
+# Target rules for targets named MatrixTest
+
+# Build rule for target.
+MatrixTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MatrixTest
+.PHONY : MatrixTest
+
+# fast build rule for target.
+MatrixTest/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/MatrixTest.dir/build.make test/CMakeFiles/MatrixTest.dir/build
+.PHONY : MatrixTest/fast
+
+#=============================================================================
+# Target rules for targets named TimeTest
+
+# Build rule for target.
+TimeTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TimeTest
+.PHONY : TimeTest
+
+# fast build rule for target.
+TimeTest/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/build
+.PHONY : TimeTest/fast
 
 # Help Target
 help:
@@ -278,12 +328,16 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... ACS"
+	@echo "... AttitudeTest"
 	@echo "... CMDS"
 	@echo "... GPS"
 	@echo "... MAGNET"
+	@echo "... MatrixTest"
 	@echo "... TELEMETRY"
 	@echo "... TelemetryUtil"
+	@echo "... TimeTest"
 	@echo "... Utils"
 .PHONY : help
 

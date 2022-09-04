@@ -98,7 +98,7 @@ GPS_EXTERNAL_OBJECTS =
 
 gps/GPS: gps/CMakeFiles/GPS.dir/gps.c.o
 gps/GPS: gps/CMakeFiles/GPS.dir/build.make
-gps/GPS: gps/Util/libUtils.a
+gps/GPS: acs/Util/libUtils.a
 gps/GPS: gps/CMakeFiles/GPS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable GPS"
 	cd /home/pi/Documents/robo-astro-pointer/build/gps && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GPS.dir/link.txt --verbose=$(VERBOSE)

@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/TELEMETRY.dir/telemetry.c.o -o TELEMETRY  Util/libUtils.a libTelemetryUtil.a -lzmq -lpthread -lm 

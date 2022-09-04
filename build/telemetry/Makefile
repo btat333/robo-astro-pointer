@@ -143,6 +143,17 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/pi/Documents/robo-astro-pointer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles /home/pi/Documents/robo-astro-pointer/build/telemetry//CMakeFiles/progress.marks
@@ -271,6 +282,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... TELEMETRY"
 	@echo "... TelemetryUtil"
 	@echo "... telemetry.o"

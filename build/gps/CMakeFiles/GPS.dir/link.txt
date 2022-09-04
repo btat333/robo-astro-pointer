@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/GPS.dir/gps.c.o -o GPS  Util/libUtils.a -lzmq -lwiringPi 
+/usr/bin/cc CMakeFiles/GPS.dir/gps.c.o -o GPS  ../acs/Util/libUtils.a -lzmq -lwiringPi 

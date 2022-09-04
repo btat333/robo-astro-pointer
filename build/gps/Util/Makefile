@@ -87,18 +87,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -143,6 +131,29 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/pi/Documents/robo-astro-pointer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles /home/pi/Documents/robo-astro-pointer/build/gps/Util//CMakeFiles/progress.marks
@@ -175,75 +186,6 @@ depend:
 	cd /home/pi/Documents/robo-astro-pointer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-gps/Util/CMakeFiles/Utils.dir/rule:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gps/Util/CMakeFiles/Utils.dir/rule
-.PHONY : gps/Util/CMakeFiles/Utils.dir/rule
-
-# Convenience name for target.
-Utils: gps/Util/CMakeFiles/Utils.dir/rule
-
-.PHONY : Utils
-
-# fast build rule for target.
-Utils/fast:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/build
-.PHONY : Utils/fast
-
-models.o: models.c.o
-
-.PHONY : models.o
-
-# target to build an object file
-models.c.o:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/models.c.o
-.PHONY : models.c.o
-
-models.i: models.c.i
-
-.PHONY : models.i
-
-# target to preprocess a source file
-models.c.i:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/models.c.i
-.PHONY : models.c.i
-
-models.s: models.c.s
-
-.PHONY : models.s
-
-# target to generate assembly for a file
-models.c.s:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/models.c.s
-.PHONY : models.c.s
-
-network.o: network.c.o
-
-.PHONY : network.o
-
-# target to build an object file
-network.c.o:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.o
-.PHONY : network.c.o
-
-network.i: network.c.i
-
-.PHONY : network.i
-
-# target to preprocess a source file
-network.c.i:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.i
-.PHONY : network.c.i
-
-network.s: network.c.s
-
-.PHONY : network.s
-
-# target to generate assembly for a file
-network.c.s:
-	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/network.c.s
-.PHONY : network.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -256,13 +198,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Utils"
-	@echo "... models.o"
-	@echo "... models.i"
-	@echo "... models.s"
-	@echo "... network.o"
-	@echo "... network.i"
-	@echo "... network.s"
+	@echo "... test"
 .PHONY : help
 
 

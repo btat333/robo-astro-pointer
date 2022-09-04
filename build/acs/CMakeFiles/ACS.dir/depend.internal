@@ -3,6 +3,9 @@
 
 acs/CMakeFiles/ACS.dir/acs.c.o
  /home/pi/Documents/robo-astro-pointer/acs/acs.c
+ /home/pi/Documents/robo-astro-pointer/util/attitude.h
+ /home/pi/Documents/robo-astro-pointer/util/frame.h
+ /home/pi/Documents/robo-astro-pointer/util/matrix.h
  /home/pi/Documents/robo-astro-pointer/util/models.h
  /home/pi/Documents/robo-astro-pointer/util/registry.h
  /home/pi/Documents/robo-astro-pointer/util/zhelpers.h

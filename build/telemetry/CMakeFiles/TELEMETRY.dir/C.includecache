@@ -40,7 +40,11 @@ telemetry_util.h
 
 /home/pi/Documents/robo-astro-pointer/telemetry/telemetry_util.h
 
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
+
 /home/pi/Documents/robo-astro-pointer/util/models.h
+matrix.h
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
 
 /home/pi/Documents/robo-astro-pointer/util/network.h
 

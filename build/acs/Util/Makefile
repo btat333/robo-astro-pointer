@@ -87,18 +87,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -143,6 +131,29 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/pi/Documents/robo-astro-pointer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles /home/pi/Documents/robo-astro-pointer/build/acs/Util//CMakeFiles/progress.marks
@@ -175,6 +186,183 @@ depend:
 	cd /home/pi/Documents/robo-astro-pointer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+acs/Util/CMakeFiles/Utils.dir/rule:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 acs/Util/CMakeFiles/Utils.dir/rule
+.PHONY : acs/Util/CMakeFiles/Utils.dir/rule
+
+# Convenience name for target.
+Utils: acs/Util/CMakeFiles/Utils.dir/rule
+
+.PHONY : Utils
+
+# fast build rule for target.
+Utils/fast:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/build
+.PHONY : Utils/fast
+
+attitude.o: attitude.c.o
+
+.PHONY : attitude.o
+
+# target to build an object file
+attitude.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/attitude.c.o
+.PHONY : attitude.c.o
+
+attitude.i: attitude.c.i
+
+.PHONY : attitude.i
+
+# target to preprocess a source file
+attitude.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/attitude.c.i
+.PHONY : attitude.c.i
+
+attitude.s: attitude.c.s
+
+.PHONY : attitude.s
+
+# target to generate assembly for a file
+attitude.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/attitude.c.s
+.PHONY : attitude.c.s
+
+frame.o: frame.c.o
+
+.PHONY : frame.o
+
+# target to build an object file
+frame.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/frame.c.o
+.PHONY : frame.c.o
+
+frame.i: frame.c.i
+
+.PHONY : frame.i
+
+# target to preprocess a source file
+frame.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/frame.c.i
+.PHONY : frame.c.i
+
+frame.s: frame.c.s
+
+.PHONY : frame.s
+
+# target to generate assembly for a file
+frame.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/frame.c.s
+.PHONY : frame.c.s
+
+matrix.o: matrix.c.o
+
+.PHONY : matrix.o
+
+# target to build an object file
+matrix.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/matrix.c.o
+.PHONY : matrix.c.o
+
+matrix.i: matrix.c.i
+
+.PHONY : matrix.i
+
+# target to preprocess a source file
+matrix.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/matrix.c.i
+.PHONY : matrix.c.i
+
+matrix.s: matrix.c.s
+
+.PHONY : matrix.s
+
+# target to generate assembly for a file
+matrix.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/matrix.c.s
+.PHONY : matrix.c.s
+
+models.o: models.c.o
+
+.PHONY : models.o
+
+# target to build an object file
+models.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/models.c.o
+.PHONY : models.c.o
+
+models.i: models.c.i
+
+.PHONY : models.i
+
+# target to preprocess a source file
+models.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/models.c.i
+.PHONY : models.c.i
+
+models.s: models.c.s
+
+.PHONY : models.s
+
+# target to generate assembly for a file
+models.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/models.c.s
+.PHONY : models.c.s
+
+network.o: network.c.o
+
+.PHONY : network.o
+
+# target to build an object file
+network.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/network.c.o
+.PHONY : network.c.o
+
+network.i: network.c.i
+
+.PHONY : network.i
+
+# target to preprocess a source file
+network.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/network.c.i
+.PHONY : network.c.i
+
+network.s: network.c.s
+
+.PHONY : network.s
+
+# target to generate assembly for a file
+network.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/network.c.s
+.PHONY : network.c.s
+
+time_util.o: time_util.c.o
+
+.PHONY : time_util.o
+
+# target to build an object file
+time_util.c.o:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/time_util.c.o
+.PHONY : time_util.c.o
+
+time_util.i: time_util.c.i
+
+.PHONY : time_util.i
+
+# target to preprocess a source file
+time_util.c.i:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/time_util.c.i
+.PHONY : time_util.c.i
+
+time_util.s: time_util.c.s
+
+.PHONY : time_util.s
+
+# target to generate assembly for a file
+time_util.c.s:
+	cd /home/pi/Documents/robo-astro-pointer/build && $(MAKE) $(MAKESILENT) -f acs/Util/CMakeFiles/Utils.dir/build.make acs/Util/CMakeFiles/Utils.dir/time_util.c.s
+.PHONY : time_util.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,6 +375,26 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... Utils"
+	@echo "... attitude.o"
+	@echo "... attitude.i"
+	@echo "... attitude.s"
+	@echo "... frame.o"
+	@echo "... frame.i"
+	@echo "... frame.s"
+	@echo "... matrix.o"
+	@echo "... matrix.i"
+	@echo "... matrix.s"
+	@echo "... models.o"
+	@echo "... models.i"
+	@echo "... models.s"
+	@echo "... network.o"
+	@echo "... network.i"
+	@echo "... network.s"
+	@echo "... time_util.o"
+	@echo "... time_util.i"
+	@echo "... time_util.s"
 .PHONY : help
 
 

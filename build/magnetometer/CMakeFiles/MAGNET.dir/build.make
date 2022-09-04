@@ -98,7 +98,7 @@ MAGNET_EXTERNAL_OBJECTS =
 
 magnetometer/MAGNET: magnetometer/CMakeFiles/MAGNET.dir/magnetometer.c.o
 magnetometer/MAGNET: magnetometer/CMakeFiles/MAGNET.dir/build.make
-magnetometer/MAGNET: gps/Util/libUtils.a
+magnetometer/MAGNET: acs/Util/libUtils.a
 magnetometer/MAGNET: magnetometer/CMakeFiles/MAGNET.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable MAGNET"
 	cd /home/pi/Documents/robo-astro-pointer/build/magnetometer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MAGNET.dir/link.txt --verbose=$(VERBOSE)

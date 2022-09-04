@@ -4,6 +4,7 @@
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o
  /home/pi/Documents/robo-astro-pointer/telemetry/telemetry.c
  /home/pi/Documents/robo-astro-pointer/telemetry/telemetry_util.h
+ /home/pi/Documents/robo-astro-pointer/util/matrix.h
  /home/pi/Documents/robo-astro-pointer/util/models.h
  /home/pi/Documents/robo-astro-pointer/util/network.h
  /home/pi/Documents/robo-astro-pointer/util/registry.h

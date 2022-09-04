@@ -10,7 +10,9 @@
         "ranges": "c",
         "tuple": "c",
         "type_traits": "c",
-        "utility": "c"
+        "utility": "c",
+        "attitude.h": "c",
+        "test_functions.h": "c"
     },
     "cmake.sourceDirectory": "${workspaceFolder}/gps",
     "cmake.configureOnOpen": false

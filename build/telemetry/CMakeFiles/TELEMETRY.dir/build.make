@@ -98,7 +98,7 @@ TELEMETRY_EXTERNAL_OBJECTS =
 
 telemetry/TELEMETRY: telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o
 telemetry/TELEMETRY: telemetry/CMakeFiles/TELEMETRY.dir/build.make
-telemetry/TELEMETRY: gps/Util/libUtils.a
+telemetry/TELEMETRY: acs/Util/libUtils.a
 telemetry/TELEMETRY: telemetry/libTelemetryUtil.a
 telemetry/TELEMETRY: telemetry/CMakeFiles/TELEMETRY.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable TELEMETRY"

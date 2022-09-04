@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
+../util/matrix.h
+
 ../util/models.h
+matrix.h
+../util/matrix.h
 
 ../util/registry.h
 

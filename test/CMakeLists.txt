@@ -1,0 +1,20 @@
+include_directories (${ASTRO_POINTER}/src/util
+                     )
+add_executable (TimeTest time_test.c test_functions.c)
+add_executable (MatrixTest matrix_test.c test_functions.c)
+add_executable (AttitudeTest attitude_test.c test_functions.c)
+add_executable (FrameTest frame_test.c test_functions.c)
+
+target_link_libraries (TimeTest Utils)
+target_link_libraries (MatrixTest Utils)
+target_link_libraries (AttitudeTest Utils m)
+target_link_libraries (FrameTest Utils)
+
+add_test(NAME TimeTest COMMAND TimeTest)
+add_test(NAME MatrixMultiply COMMAND MatrixTest 1)
+add_test(NAME MatrixTranspose COMMAND MatrixTest 2)
+add_test(NAME Euler3Test COMMAND AttitudeTest 1)
+add_test(NAME Euler2Test COMMAND AttitudeTest 2)
+add_test(NAME EarthRotationTest COMMAND FrameTest 1)
+add_test(NAME EarthRotationTest COMMAND FrameTest 2)
+add_test(NAME EarthRotationTest COMMAND FrameTest 3)

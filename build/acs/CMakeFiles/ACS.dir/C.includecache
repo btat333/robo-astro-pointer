@@ -15,6 +15,8 @@ stdio.h
 -
 string.h
 -
+time.h
+-
 unistd.h
 -
 math.h
@@ -23,16 +25,32 @@ pthread.h
 -
 zmq.h
 -
-../util/zhelpers.h
-/home/pi/Documents/robo-astro-pointer/util/zhelpers.h
+../util/attitude.h
+/home/pi/Documents/robo-astro-pointer/util/attitude.h
+../util/frame.h
+/home/pi/Documents/robo-astro-pointer/util/frame.h
+../util/matrix.h
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
 ../util/models.h
 /home/pi/Documents/robo-astro-pointer/util/models.h
 ../util/registry.h
 /home/pi/Documents/robo-astro-pointer/util/registry.h
+../util/zhelpers.h
+/home/pi/Documents/robo-astro-pointer/util/zhelpers.h
 acs.h
 /home/pi/Documents/robo-astro-pointer/acs/acs.h
 
+/home/pi/Documents/robo-astro-pointer/util/attitude.h
+matrix.h
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
+
+/home/pi/Documents/robo-astro-pointer/util/frame.h
+
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
+
 /home/pi/Documents/robo-astro-pointer/util/models.h
+matrix.h
+/home/pi/Documents/robo-astro-pointer/util/matrix.h
 
 /home/pi/Documents/robo-astro-pointer/util/registry.h
 

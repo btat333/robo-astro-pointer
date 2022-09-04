@@ -31,9 +31,10 @@ gcc -o robo ./star_tracker/star_tracker.c ./star_tracker/camera.c gps.c pointer.
 - Accelerometer error - atan(1/1000) ~ 0.1 deg
 - Magnetometer error - 1 to 2 deg
 - Current induced magnetic error - B = mu_0*i/(2*pi*r), i is current of r-pi, r is distance to magnetometer
-- GPS -> Topocentric Reference frame error
-- Earth Orientation Parameter Error
-- Stepper Motor Max Error -
+- GPS -> Topocentric Reference frame error (geodetic vs. geocentric information - 0.2 degrees)
+- ITRF Error ->  Precession, Nutation ( < 1 degree)
+- UT1 error -> need to convert from UTC to UT1 using UT1-UTC file (1/86400 * 360 degrees error = 0.004 deg)
+- Stepper Motor Max Error - ?
 
 ## FSW reference
 - https://www.jhuapl.edu/Content/techdigest/pdf/V20-N04/20-04-Malcom.pdf

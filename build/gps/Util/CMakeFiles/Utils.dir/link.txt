@@ -1,2 +1,2 @@
-/usr/bin/ar qc libUtils.a CMakeFiles/Utils.dir/models.c.o CMakeFiles/Utils.dir/network.c.o
+/usr/bin/ar qc libUtils.a CMakeFiles/Utils.dir/attitude.c.o CMakeFiles/Utils.dir/frame.c.o CMakeFiles/Utils.dir/matrix.c.o CMakeFiles/Utils.dir/models.c.o CMakeFiles/Utils.dir/network.c.o CMakeFiles/Utils.dir/time_util.c.o
 /usr/bin/ranlib libUtils.a

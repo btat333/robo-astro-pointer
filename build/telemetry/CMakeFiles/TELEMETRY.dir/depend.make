@@ -3,6 +3,7 @@
 
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../telemetry/telemetry.c
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../telemetry/telemetry_util.h
+telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../util/matrix.h
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../util/models.h
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../util/network.h
 telemetry/CMakeFiles/TELEMETRY.dir/telemetry.c.o: ../util/registry.h

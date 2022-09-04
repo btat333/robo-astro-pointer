@@ -72,413 +72,537 @@ CMAKE_BINARY_DIR = /home/pi/Documents/robo-astro-pointer/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: gps/all
-all: magnetometer/all
-all: acs/all
-all: telemetry/all
-all: commands/all
+all: src/all
+all: test/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: gps/preinstall
-preinstall: magnetometer/preinstall
-preinstall: acs/preinstall
-preinstall: telemetry/preinstall
-preinstall: commands/preinstall
+preinstall: src/preinstall
+preinstall: test/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: gps/clean
-clean: magnetometer/clean
-clean: acs/clean
-clean: telemetry/clean
-clean: commands/clean
+clean: src/clean
+clean: test/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory acs
+# Directory level rules for directory src
 
 # Recursive "all" directory target.
-acs/all: acs/CMakeFiles/ACS.dir/all
-acs/all: acs/Util/all
+src/all: src/acs/all
+src/all: src/gps/all
+src/all: src/magnetometer/all
+src/all: src/telemetry/all
+src/all: src/commands/all
 
-.PHONY : acs/all
+.PHONY : src/all
 
 # Recursive "preinstall" directory target.
-acs/preinstall: acs/Util/preinstall
+src/preinstall: src/acs/preinstall
+src/preinstall: src/gps/preinstall
+src/preinstall: src/magnetometer/preinstall
+src/preinstall: src/telemetry/preinstall
+src/preinstall: src/commands/preinstall
 
-.PHONY : acs/preinstall
+.PHONY : src/preinstall
 
 # Recursive "clean" directory target.
-acs/clean: acs/CMakeFiles/ACS.dir/clean
-acs/clean: acs/Util/clean
+src/clean: src/acs/clean
+src/clean: src/gps/clean
+src/clean: src/magnetometer/clean
+src/clean: src/telemetry/clean
+src/clean: src/commands/clean
 
-.PHONY : acs/clean
+.PHONY : src/clean
 
 #=============================================================================
-# Directory level rules for directory acs/Util
+# Directory level rules for directory src/acs
 
 # Recursive "all" directory target.
-acs/Util/all:
+src/acs/all: src/acs/CMakeFiles/ACS.dir/all
+src/acs/all: src/acs/Util/all
 
-.PHONY : acs/Util/all
+.PHONY : src/acs/all
 
 # Recursive "preinstall" directory target.
-acs/Util/preinstall:
+src/acs/preinstall: src/acs/Util/preinstall
 
-.PHONY : acs/Util/preinstall
+.PHONY : src/acs/preinstall
 
 # Recursive "clean" directory target.
-acs/Util/clean:
+src/acs/clean: src/acs/CMakeFiles/ACS.dir/clean
+src/acs/clean: src/acs/Util/clean
 
-.PHONY : acs/Util/clean
+.PHONY : src/acs/clean
 
 #=============================================================================
-# Directory level rules for directory commands
+# Directory level rules for directory src/acs/Util
 
 # Recursive "all" directory target.
-commands/all: commands/CMakeFiles/CMDS.dir/all
-commands/all: commands/Util/all
+src/acs/Util/all: src/acs/Util/CMakeFiles/Utils.dir/all
 
-.PHONY : commands/all
+.PHONY : src/acs/Util/all
 
 # Recursive "preinstall" directory target.
-commands/preinstall: commands/Util/preinstall
+src/acs/Util/preinstall:
 
-.PHONY : commands/preinstall
+.PHONY : src/acs/Util/preinstall
 
 # Recursive "clean" directory target.
-commands/clean: commands/CMakeFiles/CMDS.dir/clean
-commands/clean: commands/Util/clean
+src/acs/Util/clean: src/acs/Util/CMakeFiles/Utils.dir/clean
 
-.PHONY : commands/clean
+.PHONY : src/acs/Util/clean
 
 #=============================================================================
-# Directory level rules for directory commands/Util
+# Directory level rules for directory src/commands
 
 # Recursive "all" directory target.
-commands/Util/all:
+src/commands/all: src/commands/CMakeFiles/CMDS.dir/all
+src/commands/all: src/commands/Util/all
 
-.PHONY : commands/Util/all
+.PHONY : src/commands/all
 
 # Recursive "preinstall" directory target.
-commands/Util/preinstall:
+src/commands/preinstall: src/commands/Util/preinstall
 
-.PHONY : commands/Util/preinstall
+.PHONY : src/commands/preinstall
 
 # Recursive "clean" directory target.
-commands/Util/clean:
+src/commands/clean: src/commands/CMakeFiles/CMDS.dir/clean
+src/commands/clean: src/commands/Util/clean
 
-.PHONY : commands/Util/clean
+.PHONY : src/commands/clean
 
 #=============================================================================
-# Directory level rules for directory gps
+# Directory level rules for directory src/commands/Util
 
 # Recursive "all" directory target.
-gps/all: gps/CMakeFiles/GPS.dir/all
-gps/all: gps/Util/all
+src/commands/Util/all:
 
-.PHONY : gps/all
+.PHONY : src/commands/Util/all
 
 # Recursive "preinstall" directory target.
-gps/preinstall: gps/Util/preinstall
+src/commands/Util/preinstall:
 
-.PHONY : gps/preinstall
+.PHONY : src/commands/Util/preinstall
 
 # Recursive "clean" directory target.
-gps/clean: gps/CMakeFiles/GPS.dir/clean
-gps/clean: gps/Util/clean
+src/commands/Util/clean:
 
-.PHONY : gps/clean
+.PHONY : src/commands/Util/clean
 
 #=============================================================================
-# Directory level rules for directory gps/Util
+# Directory level rules for directory src/gps
 
 # Recursive "all" directory target.
-gps/Util/all: gps/Util/CMakeFiles/Utils.dir/all
+src/gps/all: src/gps/CMakeFiles/GPS.dir/all
+src/gps/all: src/gps/Util/all
 
-.PHONY : gps/Util/all
+.PHONY : src/gps/all
 
 # Recursive "preinstall" directory target.
-gps/Util/preinstall:
+src/gps/preinstall: src/gps/Util/preinstall
 
-.PHONY : gps/Util/preinstall
+.PHONY : src/gps/preinstall
 
 # Recursive "clean" directory target.
-gps/Util/clean: gps/Util/CMakeFiles/Utils.dir/clean
+src/gps/clean: src/gps/CMakeFiles/GPS.dir/clean
+src/gps/clean: src/gps/Util/clean
 
-.PHONY : gps/Util/clean
+.PHONY : src/gps/clean
 
 #=============================================================================
-# Directory level rules for directory magnetometer
+# Directory level rules for directory src/gps/Util
 
 # Recursive "all" directory target.
-magnetometer/all: magnetometer/CMakeFiles/MAGNET.dir/all
-magnetometer/all: magnetometer/Util/all
+src/gps/Util/all:
 
-.PHONY : magnetometer/all
+.PHONY : src/gps/Util/all
 
 # Recursive "preinstall" directory target.
-magnetometer/preinstall: magnetometer/Util/preinstall
+src/gps/Util/preinstall:
 
-.PHONY : magnetometer/preinstall
+.PHONY : src/gps/Util/preinstall
 
 # Recursive "clean" directory target.
-magnetometer/clean: magnetometer/CMakeFiles/MAGNET.dir/clean
-magnetometer/clean: magnetometer/Util/clean
+src/gps/Util/clean:
 
-.PHONY : magnetometer/clean
+.PHONY : src/gps/Util/clean
 
 #=============================================================================
-# Directory level rules for directory magnetometer/Util
+# Directory level rules for directory src/magnetometer
 
 # Recursive "all" directory target.
-magnetometer/Util/all:
+src/magnetometer/all: src/magnetometer/CMakeFiles/MAGNET.dir/all
+src/magnetometer/all: src/magnetometer/Util/all
 
-.PHONY : magnetometer/Util/all
+.PHONY : src/magnetometer/all
 
 # Recursive "preinstall" directory target.
-magnetometer/Util/preinstall:
+src/magnetometer/preinstall: src/magnetometer/Util/preinstall
 
-.PHONY : magnetometer/Util/preinstall
+.PHONY : src/magnetometer/preinstall
 
 # Recursive "clean" directory target.
-magnetometer/Util/clean:
+src/magnetometer/clean: src/magnetometer/CMakeFiles/MAGNET.dir/clean
+src/magnetometer/clean: src/magnetometer/Util/clean
 
-.PHONY : magnetometer/Util/clean
+.PHONY : src/magnetometer/clean
 
 #=============================================================================
-# Directory level rules for directory telemetry
+# Directory level rules for directory src/magnetometer/Util
 
 # Recursive "all" directory target.
-telemetry/all: telemetry/CMakeFiles/TelemetryUtil.dir/all
-telemetry/all: telemetry/CMakeFiles/TELEMETRY.dir/all
-telemetry/all: telemetry/Util/all
+src/magnetometer/Util/all:
 
-.PHONY : telemetry/all
+.PHONY : src/magnetometer/Util/all
 
 # Recursive "preinstall" directory target.
-telemetry/preinstall: telemetry/Util/preinstall
+src/magnetometer/Util/preinstall:
 
-.PHONY : telemetry/preinstall
+.PHONY : src/magnetometer/Util/preinstall
 
 # Recursive "clean" directory target.
-telemetry/clean: telemetry/CMakeFiles/TelemetryUtil.dir/clean
-telemetry/clean: telemetry/CMakeFiles/TELEMETRY.dir/clean
-telemetry/clean: telemetry/Util/clean
+src/magnetometer/Util/clean:
 
-.PHONY : telemetry/clean
+.PHONY : src/magnetometer/Util/clean
 
 #=============================================================================
-# Directory level rules for directory telemetry/Util
+# Directory level rules for directory src/telemetry
 
 # Recursive "all" directory target.
-telemetry/Util/all:
+src/telemetry/all: src/telemetry/CMakeFiles/TelemetryUtil.dir/all
+src/telemetry/all: src/telemetry/CMakeFiles/TELEMETRY.dir/all
+src/telemetry/all: src/telemetry/Util/all
 
-.PHONY : telemetry/Util/all
+.PHONY : src/telemetry/all
 
 # Recursive "preinstall" directory target.
-telemetry/Util/preinstall:
+src/telemetry/preinstall: src/telemetry/Util/preinstall
 
-.PHONY : telemetry/Util/preinstall
+.PHONY : src/telemetry/preinstall
 
 # Recursive "clean" directory target.
-telemetry/Util/clean:
+src/telemetry/clean: src/telemetry/CMakeFiles/TelemetryUtil.dir/clean
+src/telemetry/clean: src/telemetry/CMakeFiles/TELEMETRY.dir/clean
+src/telemetry/clean: src/telemetry/Util/clean
 
-.PHONY : telemetry/Util/clean
+.PHONY : src/telemetry/clean
 
 #=============================================================================
-# Target rules for target gps/CMakeFiles/GPS.dir
+# Directory level rules for directory src/telemetry/Util
+
+# Recursive "all" directory target.
+src/telemetry/Util/all:
+
+.PHONY : src/telemetry/Util/all
+
+# Recursive "preinstall" directory target.
+src/telemetry/Util/preinstall:
+
+.PHONY : src/telemetry/Util/preinstall
+
+# Recursive "clean" directory target.
+src/telemetry/Util/clean:
+
+.PHONY : src/telemetry/Util/clean
+
+#=============================================================================
+# Directory level rules for directory test
+
+# Recursive "all" directory target.
+test/all: test/CMakeFiles/AttitudeTest.dir/all
+test/all: test/CMakeFiles/MatrixTest.dir/all
+test/all: test/CMakeFiles/TimeTest.dir/all
+
+.PHONY : test/all
+
+# Recursive "preinstall" directory target.
+test/preinstall:
+
+.PHONY : test/preinstall
+
+# Recursive "clean" directory target.
+test/clean: test/CMakeFiles/AttitudeTest.dir/clean
+test/clean: test/CMakeFiles/MatrixTest.dir/clean
+test/clean: test/CMakeFiles/TimeTest.dir/clean
+
+.PHONY : test/clean
+
+#=============================================================================
+# Target rules for target src/acs/CMakeFiles/ACS.dir
 
 # All Build rule for target.
-gps/CMakeFiles/GPS.dir/all: gps/Util/CMakeFiles/Utils.dir/all
-	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/depend
-	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=5,6 "Built target GPS"
-.PHONY : gps/CMakeFiles/GPS.dir/all
-
-# Build rule for subdir invocation for target.
-gps/CMakeFiles/GPS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gps/CMakeFiles/GPS.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : gps/CMakeFiles/GPS.dir/rule
-
-# Convenience name for target.
-GPS: gps/CMakeFiles/GPS.dir/rule
-
-.PHONY : GPS
-
-# clean rule for target.
-gps/CMakeFiles/GPS.dir/clean:
-	$(MAKE) $(MAKESILENT) -f gps/CMakeFiles/GPS.dir/build.make gps/CMakeFiles/GPS.dir/clean
-.PHONY : gps/CMakeFiles/GPS.dir/clean
-
-#=============================================================================
-# Target rules for target gps/Util/CMakeFiles/Utils.dir
-
-# All Build rule for target.
-gps/Util/CMakeFiles/Utils.dir/all:
-	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/depend
-	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=13,14,15 "Built target Utils"
-.PHONY : gps/Util/CMakeFiles/Utils.dir/all
-
-# Build rule for subdir invocation for target.
-gps/Util/CMakeFiles/Utils.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gps/Util/CMakeFiles/Utils.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : gps/Util/CMakeFiles/Utils.dir/rule
-
-# Convenience name for target.
-Utils: gps/Util/CMakeFiles/Utils.dir/rule
-
-.PHONY : Utils
-
-# clean rule for target.
-gps/Util/CMakeFiles/Utils.dir/clean:
-	$(MAKE) $(MAKESILENT) -f gps/Util/CMakeFiles/Utils.dir/build.make gps/Util/CMakeFiles/Utils.dir/clean
-.PHONY : gps/Util/CMakeFiles/Utils.dir/clean
-
-#=============================================================================
-# Target rules for target magnetometer/CMakeFiles/MAGNET.dir
-
-# All Build rule for target.
-magnetometer/CMakeFiles/MAGNET.dir/all: gps/Util/CMakeFiles/Utils.dir/all
-	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/depend
-	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=7,8 "Built target MAGNET"
-.PHONY : magnetometer/CMakeFiles/MAGNET.dir/all
-
-# Build rule for subdir invocation for target.
-magnetometer/CMakeFiles/MAGNET.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 magnetometer/CMakeFiles/MAGNET.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : magnetometer/CMakeFiles/MAGNET.dir/rule
-
-# Convenience name for target.
-MAGNET: magnetometer/CMakeFiles/MAGNET.dir/rule
-
-.PHONY : MAGNET
-
-# clean rule for target.
-magnetometer/CMakeFiles/MAGNET.dir/clean:
-	$(MAKE) $(MAKESILENT) -f magnetometer/CMakeFiles/MAGNET.dir/build.make magnetometer/CMakeFiles/MAGNET.dir/clean
-.PHONY : magnetometer/CMakeFiles/MAGNET.dir/clean
-
-#=============================================================================
-# Target rules for target acs/CMakeFiles/ACS.dir
-
-# All Build rule for target.
-acs/CMakeFiles/ACS.dir/all: gps/Util/CMakeFiles/Utils.dir/all
-	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/depend
-	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/build
+src/acs/CMakeFiles/ACS.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f src/acs/CMakeFiles/ACS.dir/build.make src/acs/CMakeFiles/ACS.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/acs/CMakeFiles/ACS.dir/build.make src/acs/CMakeFiles/ACS.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=1,2 "Built target ACS"
-.PHONY : acs/CMakeFiles/ACS.dir/all
+.PHONY : src/acs/CMakeFiles/ACS.dir/all
 
 # Build rule for subdir invocation for target.
-acs/CMakeFiles/ACS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 acs/CMakeFiles/ACS.dir/all
+src/acs/CMakeFiles/ACS.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/acs/CMakeFiles/ACS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : acs/CMakeFiles/ACS.dir/rule
+.PHONY : src/acs/CMakeFiles/ACS.dir/rule
 
 # Convenience name for target.
-ACS: acs/CMakeFiles/ACS.dir/rule
+ACS: src/acs/CMakeFiles/ACS.dir/rule
 
 .PHONY : ACS
 
 # clean rule for target.
-acs/CMakeFiles/ACS.dir/clean:
-	$(MAKE) $(MAKESILENT) -f acs/CMakeFiles/ACS.dir/build.make acs/CMakeFiles/ACS.dir/clean
-.PHONY : acs/CMakeFiles/ACS.dir/clean
+src/acs/CMakeFiles/ACS.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/acs/CMakeFiles/ACS.dir/build.make src/acs/CMakeFiles/ACS.dir/clean
+.PHONY : src/acs/CMakeFiles/ACS.dir/clean
 
 #=============================================================================
-# Target rules for target telemetry/CMakeFiles/TelemetryUtil.dir
+# Target rules for target src/acs/Util/CMakeFiles/Utils.dir
 
 # All Build rule for target.
-telemetry/CMakeFiles/TelemetryUtil.dir/all:
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TelemetryUtil.dir/build.make telemetry/CMakeFiles/TelemetryUtil.dir/depend
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TelemetryUtil.dir/build.make telemetry/CMakeFiles/TelemetryUtil.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=11,12 "Built target TelemetryUtil"
-.PHONY : telemetry/CMakeFiles/TelemetryUtil.dir/all
+src/acs/Util/CMakeFiles/Utils.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=22,23,24,25,26,27,28 "Built target Utils"
+.PHONY : src/acs/Util/CMakeFiles/Utils.dir/all
 
 # Build rule for subdir invocation for target.
-telemetry/CMakeFiles/TelemetryUtil.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 telemetry/CMakeFiles/TelemetryUtil.dir/all
+src/acs/Util/CMakeFiles/Utils.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/acs/Util/CMakeFiles/Utils.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : telemetry/CMakeFiles/TelemetryUtil.dir/rule
+.PHONY : src/acs/Util/CMakeFiles/Utils.dir/rule
 
 # Convenience name for target.
-TelemetryUtil: telemetry/CMakeFiles/TelemetryUtil.dir/rule
+Utils: src/acs/Util/CMakeFiles/Utils.dir/rule
+
+.PHONY : Utils
+
+# clean rule for target.
+src/acs/Util/CMakeFiles/Utils.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/clean
+.PHONY : src/acs/Util/CMakeFiles/Utils.dir/clean
+
+#=============================================================================
+# Target rules for target src/gps/CMakeFiles/GPS.dir
+
+# All Build rule for target.
+src/gps/CMakeFiles/GPS.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f src/gps/CMakeFiles/GPS.dir/build.make src/gps/CMakeFiles/GPS.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/gps/CMakeFiles/GPS.dir/build.make src/gps/CMakeFiles/GPS.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=8,9 "Built target GPS"
+.PHONY : src/gps/CMakeFiles/GPS.dir/all
+
+# Build rule for subdir invocation for target.
+src/gps/CMakeFiles/GPS.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/gps/CMakeFiles/GPS.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/gps/CMakeFiles/GPS.dir/rule
+
+# Convenience name for target.
+GPS: src/gps/CMakeFiles/GPS.dir/rule
+
+.PHONY : GPS
+
+# clean rule for target.
+src/gps/CMakeFiles/GPS.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/gps/CMakeFiles/GPS.dir/build.make src/gps/CMakeFiles/GPS.dir/clean
+.PHONY : src/gps/CMakeFiles/GPS.dir/clean
+
+#=============================================================================
+# Target rules for target src/magnetometer/CMakeFiles/MAGNET.dir
+
+# All Build rule for target.
+src/magnetometer/CMakeFiles/MAGNET.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=10,11 "Built target MAGNET"
+.PHONY : src/magnetometer/CMakeFiles/MAGNET.dir/all
+
+# Build rule for subdir invocation for target.
+src/magnetometer/CMakeFiles/MAGNET.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/magnetometer/CMakeFiles/MAGNET.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/magnetometer/CMakeFiles/MAGNET.dir/rule
+
+# Convenience name for target.
+MAGNET: src/magnetometer/CMakeFiles/MAGNET.dir/rule
+
+.PHONY : MAGNET
+
+# clean rule for target.
+src/magnetometer/CMakeFiles/MAGNET.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/clean
+.PHONY : src/magnetometer/CMakeFiles/MAGNET.dir/clean
+
+#=============================================================================
+# Target rules for target src/telemetry/CMakeFiles/TelemetryUtil.dir
+
+# All Build rule for target.
+src/telemetry/CMakeFiles/TelemetryUtil.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=17,18 "Built target TelemetryUtil"
+.PHONY : src/telemetry/CMakeFiles/TelemetryUtil.dir/all
+
+# Build rule for subdir invocation for target.
+src/telemetry/CMakeFiles/TelemetryUtil.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/telemetry/CMakeFiles/TelemetryUtil.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/telemetry/CMakeFiles/TelemetryUtil.dir/rule
+
+# Convenience name for target.
+TelemetryUtil: src/telemetry/CMakeFiles/TelemetryUtil.dir/rule
 
 .PHONY : TelemetryUtil
 
 # clean rule for target.
-telemetry/CMakeFiles/TelemetryUtil.dir/clean:
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TelemetryUtil.dir/build.make telemetry/CMakeFiles/TelemetryUtil.dir/clean
-.PHONY : telemetry/CMakeFiles/TelemetryUtil.dir/clean
+src/telemetry/CMakeFiles/TelemetryUtil.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/clean
+.PHONY : src/telemetry/CMakeFiles/TelemetryUtil.dir/clean
 
 #=============================================================================
-# Target rules for target telemetry/CMakeFiles/TELEMETRY.dir
+# Target rules for target src/telemetry/CMakeFiles/TELEMETRY.dir
 
 # All Build rule for target.
-telemetry/CMakeFiles/TELEMETRY.dir/all: gps/Util/CMakeFiles/Utils.dir/all
-telemetry/CMakeFiles/TELEMETRY.dir/all: telemetry/CMakeFiles/TelemetryUtil.dir/all
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/depend
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=9,10 "Built target TELEMETRY"
-.PHONY : telemetry/CMakeFiles/TELEMETRY.dir/all
+src/telemetry/CMakeFiles/TELEMETRY.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+src/telemetry/CMakeFiles/TELEMETRY.dir/all: src/telemetry/CMakeFiles/TelemetryUtil.dir/all
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=15,16 "Built target TELEMETRY"
+.PHONY : src/telemetry/CMakeFiles/TELEMETRY.dir/all
 
 # Build rule for subdir invocation for target.
-telemetry/CMakeFiles/TELEMETRY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 telemetry/CMakeFiles/TELEMETRY.dir/all
+src/telemetry/CMakeFiles/TELEMETRY.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/telemetry/CMakeFiles/TELEMETRY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : telemetry/CMakeFiles/TELEMETRY.dir/rule
+.PHONY : src/telemetry/CMakeFiles/TELEMETRY.dir/rule
 
 # Convenience name for target.
-TELEMETRY: telemetry/CMakeFiles/TELEMETRY.dir/rule
+TELEMETRY: src/telemetry/CMakeFiles/TELEMETRY.dir/rule
 
 .PHONY : TELEMETRY
 
 # clean rule for target.
-telemetry/CMakeFiles/TELEMETRY.dir/clean:
-	$(MAKE) $(MAKESILENT) -f telemetry/CMakeFiles/TELEMETRY.dir/build.make telemetry/CMakeFiles/TELEMETRY.dir/clean
-.PHONY : telemetry/CMakeFiles/TELEMETRY.dir/clean
+src/telemetry/CMakeFiles/TELEMETRY.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/clean
+.PHONY : src/telemetry/CMakeFiles/TELEMETRY.dir/clean
 
 #=============================================================================
-# Target rules for target commands/CMakeFiles/CMDS.dir
+# Target rules for target src/commands/CMakeFiles/CMDS.dir
 
 # All Build rule for target.
-commands/CMakeFiles/CMDS.dir/all: gps/Util/CMakeFiles/Utils.dir/all
-	$(MAKE) $(MAKESILENT) -f commands/CMakeFiles/CMDS.dir/build.make commands/CMakeFiles/CMDS.dir/depend
-	$(MAKE) $(MAKESILENT) -f commands/CMakeFiles/CMDS.dir/build.make commands/CMakeFiles/CMDS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=3,4 "Built target CMDS"
-.PHONY : commands/CMakeFiles/CMDS.dir/all
+src/commands/CMakeFiles/CMDS.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/CMDS.dir/build.make src/commands/CMakeFiles/CMDS.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/CMDS.dir/build.make src/commands/CMakeFiles/CMDS.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=6,7 "Built target CMDS"
+.PHONY : src/commands/CMakeFiles/CMDS.dir/all
 
 # Build rule for subdir invocation for target.
-commands/CMakeFiles/CMDS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 commands/CMakeFiles/CMDS.dir/all
+src/commands/CMakeFiles/CMDS.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/commands/CMakeFiles/CMDS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
-.PHONY : commands/CMakeFiles/CMDS.dir/rule
+.PHONY : src/commands/CMakeFiles/CMDS.dir/rule
 
 # Convenience name for target.
-CMDS: commands/CMakeFiles/CMDS.dir/rule
+CMDS: src/commands/CMakeFiles/CMDS.dir/rule
 
 .PHONY : CMDS
 
 # clean rule for target.
-commands/CMakeFiles/CMDS.dir/clean:
-	$(MAKE) $(MAKESILENT) -f commands/CMakeFiles/CMDS.dir/build.make commands/CMakeFiles/CMDS.dir/clean
-.PHONY : commands/CMakeFiles/CMDS.dir/clean
+src/commands/CMakeFiles/CMDS.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/commands/CMakeFiles/CMDS.dir/build.make src/commands/CMakeFiles/CMDS.dir/clean
+.PHONY : src/commands/CMakeFiles/CMDS.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/AttitudeTest.dir
+
+# All Build rule for target.
+test/CMakeFiles/AttitudeTest.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/AttitudeTest.dir/build.make test/CMakeFiles/AttitudeTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/AttitudeTest.dir/build.make test/CMakeFiles/AttitudeTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=3,4,5 "Built target AttitudeTest"
+.PHONY : test/CMakeFiles/AttitudeTest.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/AttitudeTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/AttitudeTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/AttitudeTest.dir/rule
+
+# Convenience name for target.
+AttitudeTest: test/CMakeFiles/AttitudeTest.dir/rule
+
+.PHONY : AttitudeTest
+
+# clean rule for target.
+test/CMakeFiles/AttitudeTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/AttitudeTest.dir/build.make test/CMakeFiles/AttitudeTest.dir/clean
+.PHONY : test/CMakeFiles/AttitudeTest.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/MatrixTest.dir
+
+# All Build rule for target.
+test/CMakeFiles/MatrixTest.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/MatrixTest.dir/build.make test/CMakeFiles/MatrixTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/MatrixTest.dir/build.make test/CMakeFiles/MatrixTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=12,13,14 "Built target MatrixTest"
+.PHONY : test/CMakeFiles/MatrixTest.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/MatrixTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/MatrixTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/MatrixTest.dir/rule
+
+# Convenience name for target.
+MatrixTest: test/CMakeFiles/MatrixTest.dir/rule
+
+.PHONY : MatrixTest
+
+# clean rule for target.
+test/CMakeFiles/MatrixTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/MatrixTest.dir/build.make test/CMakeFiles/MatrixTest.dir/clean
+.PHONY : test/CMakeFiles/MatrixTest.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/TimeTest.dir
+
+# All Build rule for target.
+test/CMakeFiles/TimeTest.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=19,20,21 "Built target TimeTest"
+.PHONY : test/CMakeFiles/TimeTest.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/TimeTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TimeTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/TimeTest.dir/rule
+
+# Convenience name for target.
+TimeTest: test/CMakeFiles/TimeTest.dir/rule
+
+.PHONY : TimeTest
+
+# clean rule for target.
+test/CMakeFiles/TimeTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/clean
+.PHONY : test/CMakeFiles/TimeTest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -44,27 +44,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pi/Documents/robo-astro-pointer/build/gps/cmake_install.cmake")
+  include("/home/pi/Documents/robo-astro-pointer/build/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pi/Documents/robo-astro-pointer/build/magnetometer/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/pi/Documents/robo-astro-pointer/build/acs/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/pi/Documents/robo-astro-pointer/build/telemetry/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/pi/Documents/robo-astro-pointer/build/commands/cmake_install.cmake")
+  include("/home/pi/Documents/robo-astro-pointer/build/test/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
