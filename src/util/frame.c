@@ -41,7 +41,7 @@ Matrix get_itrf_topo_dcm(double latitude, double longitude) {
 
     // Build euler axis rotation matrices
     Matrix C1 = get_euler_rot_3(longitude);
-    Matrix C2 = get_euler_rot_2(latitude);
+    Matrix C2 = get_euler_rot_2(-latitude);
     Matrix C3 = get_euler_rot_2(third_rot_angle);
 
 

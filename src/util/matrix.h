@@ -12,6 +12,7 @@ typedef struct t_matrix
 // Helper functions
 Matrix init_mat(int rows, int columns, double values[]);
 void delete_mat(Matrix mat);
+void display_mat(Matrix mat);
 
 // Operatios
 Matrix matrix_multiply(Matrix left, Matrix right);

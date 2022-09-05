@@ -60,7 +60,7 @@ struct MagnetometerMeasurement parse_magnetomer_data(char * mm_string)
 
 void * serialize_attitude_data(Matrix C, char* out_string) {
 
-    char tmp[10];
+    char tmp[10] = "";
     sprintf(tmp,"%10f",C.mat[0]);
     strcat(out_string,tmp);
     for(int i = 1; i < C.rows*C.columns; i++){

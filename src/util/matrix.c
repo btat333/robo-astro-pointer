@@ -95,3 +95,21 @@ Matrix transpose_matrix(Matrix src) {
     Matrix dst = init_mat(M, N, mat_data);
     return dst;
 }
+
+void display_mat(Matrix mat) {
+
+    for (int i = 0; i < mat.rows; i++) {
+
+        fprintf(stdout,"[");
+        for (int j = 0; j < mat.columns; j++) {
+            fprintf(stdout,"%18.10f",mat.mat[i*mat.columns+j]);
+
+            if (j != mat.columns-1) {
+                fprintf(stdout,", ");
+            }
+        }
+        fprintf(stdout,"]\n");
+    }
+    fprintf(stdout,"\n");
+    fflush(stdout);
+}
