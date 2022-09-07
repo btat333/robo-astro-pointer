@@ -1,13 +1,3 @@
-#ifndef POINTER_H
-#define POINTER_H
-
-/* Updates stepper motor upon receipt of new GPS data */
-void * listen_gps_updates ();
-
-/* Updates stepper motor upon receipt of new compass data */
-/*void update_compass ();*/
-
-/* Updates stepper motor upon receipt of commanded pointing */
-/*void recieve_command ();*/
-
-#endif
+// the configured options and settings for Tutorial
+#define POINTER_VERSION_MAJOR @POINTER_VERSION_MAJOR@
+#define POINTER_VERSION_MINOR @POINTER_VERSION_MINOR@

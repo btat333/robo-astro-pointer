@@ -1,7 +1,9 @@
+#include <assert.h>
 #include <stdio.h>
 #include <string.h>
-#include <assert.h>
+#include <stdlib.h>
 
+#include "matrix.h"
 #include "models.h"
 
 /* Parses a GPSPointSolution data from string */
@@ -68,4 +70,50 @@ void * serialize_attitude_data(Matrix C, char* out_string) {
         strcat(out_string,",");
         strcat(out_string,tmp);
     }
+}
+
+/*  Parses attitude in form of DCM from string */
+Matrix parse_attitude_data(char * att_string) 
+{
+    Matrix att;
+    double att_data[9];
+
+    int i = 0;
+    char* pch = strtok (att_string,",");
+    while (pch != NULL)
+    {
+        att_data[i] = atof(pch);
+        pch = strtok (NULL, " ,.-");
+        i++;
+    }
+
+    att = init_mat(3,3,att_data);
+    return att;
+}
+
+/*  Parses command in form of DCM from string */
+Command parse_command(char * command_string) {
+
+    Command comm;
+    char* command_type;
+    char* data;
+
+    sscanf( command_string, "%[A-Z] *", command_type, data);
+
+    comm.command_type = command_type;
+    comm.data = data;
+    return comm;
+}
+
+Direction parse_direction(char * dir_string) {
+
+    Direction direction;
+    double RA;
+    double dec;
+
+    sscanf( dir_string, "%lf,%lf", &RA, &dec);
+
+    direction.RA = RA;
+    direction.dec = dec;
+    return direction;
 }
