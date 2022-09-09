@@ -5,12 +5,15 @@
 #include <errno.h>
 
 #include <pthread.h>
+#include <unistd.h>
 #include <wiringPi.h>
 #include <zmq.h>
 
 #include "../util/zhelpers.h"
 #include "../util/models.h"
 #include "../util/registry.h"
+#include "pointer_util.h"
+
 #include "pointer.h"
 
 const int conflate = 1;

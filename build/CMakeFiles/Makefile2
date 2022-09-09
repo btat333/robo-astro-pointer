@@ -96,6 +96,7 @@ clean: test/clean
 src/all: src/acs/all
 src/all: src/gps/all
 src/all: src/magnetometer/all
+src/all: src/pointer/all
 src/all: src/telemetry/all
 src/all: src/commands/all
 
@@ -105,6 +106,7 @@ src/all: src/commands/all
 src/preinstall: src/acs/preinstall
 src/preinstall: src/gps/preinstall
 src/preinstall: src/magnetometer/preinstall
+src/preinstall: src/pointer/preinstall
 src/preinstall: src/telemetry/preinstall
 src/preinstall: src/commands/preinstall
 
@@ -114,6 +116,7 @@ src/preinstall: src/commands/preinstall
 src/clean: src/acs/clean
 src/clean: src/gps/clean
 src/clean: src/magnetometer/clean
+src/clean: src/pointer/clean
 src/clean: src/telemetry/clean
 src/clean: src/commands/clean
 
@@ -272,6 +275,67 @@ src/magnetometer/Util/clean:
 .PHONY : src/magnetometer/Util/clean
 
 #=============================================================================
+# Directory level rules for directory src/pointer
+
+# Recursive "all" directory target.
+src/pointer/all: src/pointer/CMakeFiles/PointerUtil.dir/all
+src/pointer/all: src/pointer/CMakeFiles/POINTER.dir/all
+src/pointer/all: src/pointer/Util/all
+src/pointer/all: src/pointer/StepperDriver/all
+
+.PHONY : src/pointer/all
+
+# Recursive "preinstall" directory target.
+src/pointer/preinstall: src/pointer/Util/preinstall
+src/pointer/preinstall: src/pointer/StepperDriver/preinstall
+
+.PHONY : src/pointer/preinstall
+
+# Recursive "clean" directory target.
+src/pointer/clean: src/pointer/CMakeFiles/PointerUtil.dir/clean
+src/pointer/clean: src/pointer/CMakeFiles/POINTER.dir/clean
+src/pointer/clean: src/pointer/Util/clean
+src/pointer/clean: src/pointer/StepperDriver/clean
+
+.PHONY : src/pointer/clean
+
+#=============================================================================
+# Directory level rules for directory src/pointer/StepperDriver
+
+# Recursive "all" directory target.
+src/pointer/StepperDriver/all: src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/all
+
+.PHONY : src/pointer/StepperDriver/all
+
+# Recursive "preinstall" directory target.
+src/pointer/StepperDriver/preinstall:
+
+.PHONY : src/pointer/StepperDriver/preinstall
+
+# Recursive "clean" directory target.
+src/pointer/StepperDriver/clean: src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/clean
+
+.PHONY : src/pointer/StepperDriver/clean
+
+#=============================================================================
+# Directory level rules for directory src/pointer/Util
+
+# Recursive "all" directory target.
+src/pointer/Util/all:
+
+.PHONY : src/pointer/Util/all
+
+# Recursive "preinstall" directory target.
+src/pointer/Util/preinstall:
+
+.PHONY : src/pointer/Util/preinstall
+
+# Recursive "clean" directory target.
+src/pointer/Util/clean:
+
+.PHONY : src/pointer/Util/clean
+
+#=============================================================================
 # Directory level rules for directory src/telemetry
 
 # Recursive "all" directory target.
@@ -369,7 +433,7 @@ src/acs/CMakeFiles/ACS.dir/clean:
 src/acs/Util/CMakeFiles/Utils.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=25,26,27,28,29,30,31 "Built target Utils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=31,32,33,34,35,36,37 "Built target Utils"
 .PHONY : src/acs/Util/CMakeFiles/Utils.dir/all
 
 # Build rule for subdir invocation for target.
@@ -444,13 +508,96 @@ src/magnetometer/CMakeFiles/MAGNET.dir/clean:
 .PHONY : src/magnetometer/CMakeFiles/MAGNET.dir/clean
 
 #=============================================================================
+# Target rules for target src/pointer/CMakeFiles/PointerUtil.dir
+
+# All Build rule for target.
+src/pointer/CMakeFiles/PointerUtil.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/PointerUtil.dir/build.make src/pointer/CMakeFiles/PointerUtil.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/PointerUtil.dir/build.make src/pointer/CMakeFiles/PointerUtil.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=20,21 "Built target PointerUtil"
+.PHONY : src/pointer/CMakeFiles/PointerUtil.dir/all
+
+# Build rule for subdir invocation for target.
+src/pointer/CMakeFiles/PointerUtil.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pointer/CMakeFiles/PointerUtil.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/pointer/CMakeFiles/PointerUtil.dir/rule
+
+# Convenience name for target.
+PointerUtil: src/pointer/CMakeFiles/PointerUtil.dir/rule
+
+.PHONY : PointerUtil
+
+# clean rule for target.
+src/pointer/CMakeFiles/PointerUtil.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/PointerUtil.dir/build.make src/pointer/CMakeFiles/PointerUtil.dir/clean
+.PHONY : src/pointer/CMakeFiles/PointerUtil.dir/clean
+
+#=============================================================================
+# Target rules for target src/pointer/CMakeFiles/POINTER.dir
+
+# All Build rule for target.
+src/pointer/CMakeFiles/POINTER.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
+src/pointer/CMakeFiles/POINTER.dir/all: src/pointer/CMakeFiles/PointerUtil.dir/all
+src/pointer/CMakeFiles/POINTER.dir/all: src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/all
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/POINTER.dir/build.make src/pointer/CMakeFiles/POINTER.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/POINTER.dir/build.make src/pointer/CMakeFiles/POINTER.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=18,19 "Built target POINTER"
+.PHONY : src/pointer/CMakeFiles/POINTER.dir/all
+
+# Build rule for subdir invocation for target.
+src/pointer/CMakeFiles/POINTER.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 13
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pointer/CMakeFiles/POINTER.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/pointer/CMakeFiles/POINTER.dir/rule
+
+# Convenience name for target.
+POINTER: src/pointer/CMakeFiles/POINTER.dir/rule
+
+.PHONY : POINTER
+
+# clean rule for target.
+src/pointer/CMakeFiles/POINTER.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/POINTER.dir/build.make src/pointer/CMakeFiles/POINTER.dir/clean
+.PHONY : src/pointer/CMakeFiles/POINTER.dir/clean
+
+#=============================================================================
+# Target rules for target src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir
+
+# All Build rule for target.
+src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build.make src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build.make src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=22,23 "Built target StepperDriver"
+.PHONY : src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/all
+
+# Build rule for subdir invocation for target.
+src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Documents/robo-astro-pointer/build/CMakeFiles 0
+.PHONY : src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/rule
+
+# Convenience name for target.
+StepperDriver: src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/rule
+
+.PHONY : StepperDriver
+
+# clean rule for target.
+src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build.make src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/clean
+.PHONY : src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/clean
+
+#=============================================================================
 # Target rules for target src/telemetry/CMakeFiles/TelemetryUtil.dir
 
 # All Build rule for target.
 src/telemetry/CMakeFiles/TelemetryUtil.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TelemetryUtil.dir/build.make src/telemetry/CMakeFiles/TelemetryUtil.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=20,21 "Built target TelemetryUtil"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=26,27 "Built target TelemetryUtil"
 .PHONY : src/telemetry/CMakeFiles/TelemetryUtil.dir/all
 
 # Build rule for subdir invocation for target.
@@ -478,7 +625,7 @@ src/telemetry/CMakeFiles/TELEMETRY.dir/all: src/acs/Util/CMakeFiles/Utils.dir/al
 src/telemetry/CMakeFiles/TELEMETRY.dir/all: src/telemetry/CMakeFiles/TelemetryUtil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/telemetry/CMakeFiles/TELEMETRY.dir/build.make src/telemetry/CMakeFiles/TELEMETRY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=18,19 "Built target TELEMETRY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=24,25 "Built target TELEMETRY"
 .PHONY : src/telemetry/CMakeFiles/TELEMETRY.dir/all
 
 # Build rule for subdir invocation for target.
@@ -613,7 +760,7 @@ test/CMakeFiles/MatrixTest.dir/clean:
 test/CMakeFiles/TimeTest.dir/all: src/acs/Util/CMakeFiles/Utils.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TimeTest.dir/build.make test/CMakeFiles/TimeTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=22,23,24 "Built target TimeTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Documents/robo-astro-pointer/build/CMakeFiles --progress-num=28,29,30 "Built target TimeTest"
 .PHONY : test/CMakeFiles/TimeTest.dir/all
 
 # Build rule for subdir invocation for target.

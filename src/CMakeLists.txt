@@ -1,5 +1,6 @@
 add_subdirectory(acs)
 add_subdirectory(gps)
 add_subdirectory(magnetometer)
+add_subdirectory(pointer)
 add_subdirectory(telemetry)
 add_subdirectory(commands)

@@ -12,4 +12,5 @@
 // Supports to integer seconds
 double get_julian_date(time_t unix_seconds);
 
+
 #endif  //  __TIMEUTIL_H_INCLUDED__

@@ -239,6 +239,45 @@ MAGNET/fast:
 .PHONY : MAGNET/fast
 
 #=============================================================================
+# Target rules for targets named PointerUtil
+
+# Build rule for target.
+PointerUtil: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PointerUtil
+.PHONY : PointerUtil
+
+# fast build rule for target.
+PointerUtil/fast:
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/PointerUtil.dir/build.make src/pointer/CMakeFiles/PointerUtil.dir/build
+.PHONY : PointerUtil/fast
+
+#=============================================================================
+# Target rules for targets named POINTER
+
+# Build rule for target.
+POINTER: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 POINTER
+.PHONY : POINTER
+
+# fast build rule for target.
+POINTER/fast:
+	$(MAKE) $(MAKESILENT) -f src/pointer/CMakeFiles/POINTER.dir/build.make src/pointer/CMakeFiles/POINTER.dir/build
+.PHONY : POINTER/fast
+
+#=============================================================================
+# Target rules for targets named StepperDriver
+
+# Build rule for target.
+StepperDriver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 StepperDriver
+.PHONY : StepperDriver
+
+# fast build rule for target.
+StepperDriver/fast:
+	$(MAKE) $(MAKESILENT) -f src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build.make src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build
+.PHONY : StepperDriver/fast
+
+#=============================================================================
 # Target rules for targets named TelemetryUtil
 
 # Build rule for target.
@@ -349,6 +388,9 @@ help:
 	@echo "... GPS"
 	@echo "... MAGNET"
 	@echo "... MatrixTest"
+	@echo "... POINTER"
+	@echo "... PointerUtil"
+	@echo "... StepperDriver"
 	@echo "... TELEMETRY"
 	@echo "... TelemetryUtil"
 	@echo "... TimeTest"

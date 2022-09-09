@@ -5,7 +5,7 @@ project(GPS VERSION 1.0)
 
 configure_file(gps.h.in gps.h)
 
-# add the MathFunctions library
+# add the util library
 add_subdirectory(../util Util)
 
 # add the executable
