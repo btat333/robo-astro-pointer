@@ -1,4 +1,5 @@
 
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <wiringPi.h>
@@ -32,6 +33,10 @@ Stepper init_stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
     pinMode(stepper.motor_pin_2, OUTPUT);
     pinMode(stepper.motor_pin_3, OUTPUT);
     pinMode(stepper.motor_pin_4, OUTPUT);
+    digitalWrite(stepper.motor_pin_1, LOW);
+    digitalWrite(stepper.motor_pin_3, LOW);
+    digitalWrite(stepper.motor_pin_4, LOW);
+    digitalWrite(stepper.motor_pin_2, LOW);
 
     // pin_count is used by the stepMotor() method:
     stepper.pin_count = 4;
@@ -104,9 +109,9 @@ void step_motor(Stepper *stepper, int thisStep)
   switch (thisStep) {
     case 0:  // 1010
       digitalWrite(stepper->motor_pin_1, HIGH);
-      digitalWrite(stepper->motor_pin_3, HIGH);
+      digitalWrite(stepper->motor_pin_2, HIGH);
+      digitalWrite(stepper->motor_pin_3, LOW);
       digitalWrite(stepper->motor_pin_4, LOW);
-      digitalWrite(stepper->motor_pin_2, LOW);
     break;
     case 1:  // 0110
       digitalWrite(stepper->motor_pin_1, LOW);
@@ -116,8 +121,8 @@ void step_motor(Stepper *stepper, int thisStep)
     break;
     case 2:  //0101
       digitalWrite(stepper->motor_pin_1, LOW);
-      digitalWrite(stepper->motor_pin_2, HIGH);
-      digitalWrite(stepper->motor_pin_3, LOW);
+      digitalWrite(stepper->motor_pin_2, LOW);
+      digitalWrite(stepper->motor_pin_3, HIGH);
       digitalWrite(stepper->motor_pin_4, HIGH);
     break;
     case 3:  //1001

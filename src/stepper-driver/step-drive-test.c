@@ -11,10 +11,11 @@
 
 #include <stdio.h>
 
-#include <stepper-driver.h>
 #include <wiringPi.h>
 
-const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
+#include "stepper-driver.h"
+
+const int stepsPerRevolution = 4096;  // change this to fit the number of steps per revolution
 // for your motor
 
 // initialize the Stepper library on pins 8 through 11:
@@ -22,21 +23,33 @@ Stepper my_stepper;
 
 void setup() {
 
-    my_stepper = init_stepper(stepsPerRevolution, 8, 9, 10, 11);
+    wiringPiSetup();
+    my_stepper = init_stepper(stepsPerRevolution, 21,22,23,24);
     // set the speed at 60 rpm:
-    set_speed(&my_stepper, 60);
+    set_speed(&my_stepper, 8);
     // initialize the serial port:
-    Serial.begin(9600);
+    //Serial.begin(9600);
 }
 
 void loop() {
   // step one revolution in one direction:
-  fprintf(stdout,"clockwise");
-  step(&my_stepper, stepsPerRevolution);
-  delay(500);
+  fprintf(stdout,"clockwise\n");
+  fflush(stdout);
+  step(&my_stepper, 4096);
+  delay(1000);
 
   // step one revolution in the other direction:
-  fprintf(stdout,"counter clockwise");
-  step(&my_stepper, -stepsPerRevolution);
-  delay(500);
+  fprintf(stdout,"counter clockwise\n");
+  step(&my_stepper, -4096);
+  delay(1000);
 }
+
+
+int main (int argc, char **argv)
+{
+  setup();
+  while(1) {
+    //loop();
+  }
+}
+
