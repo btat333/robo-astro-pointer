@@ -105,9 +105,9 @@ Command parse_command(char * command_string) {
     return comm;
 }
 
-Direction parse_direction(char * dir_string) {
+RADec parse_direction(char * dir_string) {
 
-    Direction direction;
+    RADec direction;
     double RA;
     double dec;
 

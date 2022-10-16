@@ -149,7 +149,7 @@ void * update_pointing ()
                     if (latest_command.command_type == RADEC_STRING) {
 
                         pthread_mutex_lock(&ra_dec_mutex);
-                        Direction local_dir = parse_direction(latest_command.data);
+                        RADec local_dir = parse_direction(latest_command.data);
                         pthread_mutex_unlock(&ra_dec_mutex);
 
                         point_direction(latest_attitude, local_dir);

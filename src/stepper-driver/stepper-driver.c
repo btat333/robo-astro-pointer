@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <math.h>
 #include <wiringPi.h>
 
 #include "../util/time_util.h"
@@ -15,8 +16,10 @@
 Stepper init_stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
                                       int motor_pin_3, int motor_pin_4)
 {
+    wiringPiSetup();
     Stepper stepper;
     stepper.step_number = 0;    // which step the motor is on
+    stepper.total_step_number = 0;
     stepper.direction = 0;      // motor direction
     stepper.last_step_time = 0; // timestamp in us of the last step taken
     stepper.number_of_steps = number_of_steps; // total number of steps for this motor
@@ -49,7 +52,7 @@ Stepper init_stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
  */
 void set_speed(Stepper *stepper, long whatSpeed)
 {
-  stepper->step_delay = 60L * 1000L * 1000L / stepper->number_of_steps / whatSpeed;
+  stepper->step_delay = 60L * 1000L * 1000L / stepper->number_of_steps / whatSpeed * 300;
 }
 
 /*
@@ -79,6 +82,7 @@ void step(Stepper *stepper, int steps_to_move)
       if (stepper->direction == 1)
       {
         stepper->step_number++;
+        stepper->total_step_number++;
         if (stepper->step_number == stepper->number_of_steps) {
           stepper->step_number = 0;
         }
@@ -89,6 +93,7 @@ void step(Stepper *stepper, int steps_to_move)
           stepper->step_number = stepper->number_of_steps;
         }
         stepper->step_number--;
+        stepper->total_step_number--;
       }
       // decrement the steps left:
       steps_left--;
@@ -99,6 +104,16 @@ void step(Stepper *stepper, int steps_to_move)
         step_motor(stepper, stepper->step_number % 4);
     }
   }
+}
+
+/*
+ * Steps motor to the specified angle from the '0' step position in radians
+ */
+void step_motor_to_angle(Stepper *stepper, double angle)
+{
+  int angle_steps = (int) angle * stepper->number_of_steps / (2 * M_PI);
+  int steps_to_step = angle_steps - stepper->total_step_number;
+  step(stepper, steps_to_step);
 }
 
 /*
@@ -132,4 +147,25 @@ void step_motor(Stepper *stepper, int thisStep)
       digitalWrite(stepper->motor_pin_4, HIGH);
     break;
   }
+}
+
+/*
+ * Sets the speed in revs per minute
+ */
+void home(Stepper *stepper)
+{
+  step(stepper, -stepper->total_step_number);
+}
+
+/*
+ * Sets the speed in revs per minute
+ */
+void free_stepper(Stepper *stepper)
+{
+  home(stepper);
+  // setup the pins on the microcontroller:
+  digitalWrite(stepper->motor_pin_1, LOW);
+  digitalWrite(stepper->motor_pin_3, LOW);
+  digitalWrite(stepper->motor_pin_4, LOW);
+  digitalWrite(stepper->motor_pin_2, LOW);
 }

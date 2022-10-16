@@ -5,8 +5,11 @@
 #include "../util/matrix.h"
 #include "../util/models.h"
 
+// Setup pointer
+void setup_pointer();
+
 // Point pointer at an RA DEC based direction and turn on laser
-void* point_direction(Matrix latest_attitude, Direction dir);
+void* point_direction(Matrix latest_attitude, RADec dir);
 
 // Point at a planet using planetary ephemerides
 void* point_planet(Matrix latest_attitude, char* planet);
@@ -25,5 +28,8 @@ void* turn_on_laser();
 
 // Turn off the laser pointer
 void* turn_off_laser();
+
+// Reset step motors, and turn off laser
+void shutdown_pointer();
 
 #endif  //  __POINTER_UTIL_H_INCLUDED__

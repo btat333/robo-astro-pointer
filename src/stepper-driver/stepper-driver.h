@@ -7,6 +7,7 @@ typedef struct t_stepper {
     int number_of_steps;      // total number of steps this motor can take
     int pin_count;            // how many pins are in use.
     int step_number;          // which step the motor is on
+    int total_step_number;          // which total step the motor is on since initialization
 
     // motor pin numbers:
     int motor_pin_1;
@@ -39,5 +40,20 @@ void step(Stepper *stepper, int steps_to_move);
  * Moves the motor forward or backwards.
  */
 void step_motor(Stepper *stepper, int thisStep);
+
+/*
+ * Steps motor to the specified angle from the '0' step position in radians
+ */
+void step_motor_to_angle(Stepper *stepper, double angle);
+
+/*
+ * Steps motor back to zero steps.
+ */
+void home(Stepper *stepper);
+
+/*
+ * Steps motor back to zero steps and turns all pins to low.
+ */
+void free_stepper(Stepper *stepper);
 
 #endif  //  __STEPPER_H_INCLUDED__

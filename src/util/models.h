@@ -27,10 +27,10 @@ typedef struct t_command {
 } Command;
 
 // Represents a direction in the MJ2000 ECI frame
-typedef struct t_direction {
+typedef struct t_radec {
   double RA; // Right ascension in radians in MJ2000
   double dec; // Declination in radians in MJ2000
-} Direction;
+} RADec;
 
 // Functions
 struct GPSPointSolution parse_gps (char *msg);
@@ -45,6 +45,6 @@ Matrix parse_attitude_data(char * C_string);
 
 Command parse_command(char * C_string);
 
-Direction parse_direction(char * C_string);
+RADec parse_direction(char * C_string);
 
 #endif  //  __MODELS_H_INCLUDED__
