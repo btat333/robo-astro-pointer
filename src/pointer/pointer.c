@@ -31,7 +31,7 @@ pthread_mutex_t ra_dec_mutex;
 
 Matrix eci_2_body_dcm;
 Command current_command;
-Direction dir;
+RADec dir;
 
 int has_attitude = 0;
 int has_command = 0;
@@ -80,6 +80,7 @@ void * listen_command_updates ()
         pthread_mutex_lock(&command_mutex);
         Command comm = parse_command(string);
         has_command = 1;
+        fprintf(stdout, "Has command.");
 
         if (comm.command_type == RADEC_STRING) {
             pthread_mutex_lock(&ra_dec_mutex);

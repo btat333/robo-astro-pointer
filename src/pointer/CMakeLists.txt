@@ -8,14 +8,16 @@ configure_file(pointer.h.in pointer.h)
 # add the MathFunctions library
 add_subdirectory(../util Util)
 add_subdirectory(../stepper-driver StepperDriver)
+add_subdirectory(../laser-driver LaserDriver)
 
 # add the executable
 add_executable(POINTER pointer.c)
 
 add_library(PointerUtil pointer_util.c)
 target_link_libraries(POINTER 
-                        PUBLIC Utils
                         PUBLIC PointerUtil
+                        PUBLIC Utils
+                        PUBLIC LaserDriver
                         PUBLIC StepperDriver
                         PUBLIC zmq
                         PUBLIC pthread

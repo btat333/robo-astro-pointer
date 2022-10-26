@@ -187,6 +187,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Utils
+
+# Build rule for target.
+Utils: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Utils
+.PHONY : Utils
+
+# fast build rule for target.
+Utils/fast:
+	$(MAKE) $(MAKESILENT) -f src/util/CMakeFiles/Utils.dir/build.make src/util/CMakeFiles/Utils.dir/build
+.PHONY : Utils/fast
+
+#=============================================================================
 # Target rules for targets named ACS
 
 # Build rule for target.
@@ -200,19 +213,6 @@ ACS/fast:
 .PHONY : ACS/fast
 
 #=============================================================================
-# Target rules for targets named Utils
-
-# Build rule for target.
-Utils: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Utils
-.PHONY : Utils
-
-# fast build rule for target.
-Utils/fast:
-	$(MAKE) $(MAKESILENT) -f src/acs/Util/CMakeFiles/Utils.dir/build.make src/acs/Util/CMakeFiles/Utils.dir/build
-.PHONY : Utils/fast
-
-#=============================================================================
 # Target rules for targets named GPS
 
 # Build rule for target.
@@ -224,19 +224,6 @@ GPS: cmake_check_build_system
 GPS/fast:
 	$(MAKE) $(MAKESILENT) -f src/gps/CMakeFiles/GPS.dir/build.make src/gps/CMakeFiles/GPS.dir/build
 .PHONY : GPS/fast
-
-#=============================================================================
-# Target rules for targets named MAGNET
-
-# Build rule for target.
-MAGNET: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MAGNET
-.PHONY : MAGNET
-
-# fast build rule for target.
-MAGNET/fast:
-	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/build
-.PHONY : MAGNET/fast
 
 #=============================================================================
 # Target rules for targets named PointerUtil
@@ -276,6 +263,32 @@ StepperDriver: cmake_check_build_system
 StepperDriver/fast:
 	$(MAKE) $(MAKESILENT) -f src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build.make src/pointer/StepperDriver/CMakeFiles/StepperDriver.dir/build
 .PHONY : StepperDriver/fast
+
+#=============================================================================
+# Target rules for targets named LaserDriver
+
+# Build rule for target.
+LaserDriver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LaserDriver
+.PHONY : LaserDriver
+
+# fast build rule for target.
+LaserDriver/fast:
+	$(MAKE) $(MAKESILENT) -f src/pointer/LaserDriver/CMakeFiles/LaserDriver.dir/build.make src/pointer/LaserDriver/CMakeFiles/LaserDriver.dir/build
+.PHONY : LaserDriver/fast
+
+#=============================================================================
+# Target rules for targets named MAGNET
+
+# Build rule for target.
+MAGNET: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MAGNET
+.PHONY : MAGNET
+
+# fast build rule for target.
+MAGNET/fast:
+	$(MAKE) $(MAKESILENT) -f src/magnetometer/CMakeFiles/MAGNET.dir/build.make src/magnetometer/CMakeFiles/MAGNET.dir/build
+.PHONY : MAGNET/fast
 
 #=============================================================================
 # Target rules for targets named TelemetryUtil
@@ -386,6 +399,7 @@ help:
 	@echo "... CMDS"
 	@echo "... FrameTest"
 	@echo "... GPS"
+	@echo "... LaserDriver"
 	@echo "... MAGNET"
 	@echo "... MatrixTest"
 	@echo "... POINTER"

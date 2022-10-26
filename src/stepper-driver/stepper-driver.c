@@ -52,7 +52,7 @@ Stepper init_stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
  */
 void set_speed(Stepper *stepper, long whatSpeed)
 {
-  stepper->step_delay = 60L * 1000L * 1000L / stepper->number_of_steps / whatSpeed * 300;
+  stepper->step_delay = 60L * 1000L * 1000L / stepper->number_of_steps / whatSpeed;
 }
 
 /*
@@ -109,7 +109,7 @@ void step(Stepper *stepper, int steps_to_move)
 /*
  * Steps motor to the specified angle from the '0' step position in radians
  */
-void step_motor_to_angle(Stepper *stepper, double angle)
+void * step_motor_to_angle(Stepper *stepper, double angle)
 {
   int angle_steps = (int) angle * stepper->number_of_steps / (2 * M_PI);
   int steps_to_step = angle_steps - stepper->total_step_number;

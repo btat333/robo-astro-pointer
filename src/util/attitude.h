@@ -3,6 +3,7 @@
 #define __ATTITUDE_H_INCLUDED__
 
 #include "matrix.h"
+#include "models.h"
 
 // Euler 3rd axis rotation DCM
 // angle - radians

@@ -44,7 +44,7 @@ void step_motor(Stepper *stepper, int thisStep);
 /*
  * Steps motor to the specified angle from the '0' step position in radians
  */
-void step_motor_to_angle(Stepper *stepper, double angle);
+void * step_motor_to_angle(Stepper *stepper, double angle);
 
 /*
  * Steps motor back to zero steps.

@@ -40,10 +40,12 @@ void loop() {
   fflush(stdout);
   //step(&my_stepper, 1024);
   step(&my_stepper2, 1024);
+  step(&my_stepper, 1024);
   fprintf(stdout,"%d\n", my_stepper.total_step_number);
   delay(1000);
   //step(&my_stepper, 1024);
   step(&my_stepper2, 1024);
+  step(&my_stepper, 2048);
   fprintf(stdout,"%d\n", my_stepper.total_step_number);
   delay(1000);
 
